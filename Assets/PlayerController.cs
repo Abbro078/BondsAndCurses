@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfWallSliding()
     {
-        if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y < 0)
+        if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y <= 0)
         {
             isWallSliding = true;
         }
@@ -268,17 +268,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
-        else if(canMove)
-        {
-            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
-        }
-
-        if(isWallSliding)
+        else if(isWallSliding)
         {
             if(rb.velocity.y < -wallSlidingSpeed)
             {
                 rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
             }
+        }
+        else if(canMove)
+        {
+            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
     }
 
