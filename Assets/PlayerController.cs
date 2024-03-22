@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float movementInputDirection;
     private Rigidbody2D rb;
+
+    private int amountOfJumpsLeft;
+
+    public int amountOfJumps = 1;
+
+    private bool isFacingRight = true;
+    private bool isWalking;
+    private bool isGrounded;
+    private bool canJump;
+
+    private float movementInputDirection;
+    
     public float movementSpeed = 10.0f;
     public float jumpForce = 16.0f;
-    private bool isFacingRight = true;
+    public float groundCheckRadius;
+
+    public LayerMask whatIsGround;
+
+    public Transform groundCheck;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        amountOfJumpsLeft = amountOfJumps;
     }
 
     // Update is called once per frame
@@ -20,11 +36,35 @@ public class PlayerController : MonoBehaviour
     {
         CheckInput();
         CheckMovementDirection();
+        CheckIfCanJump();
     }
 
     private void FixedUpdate()
     {
         ApplyMovement();
+        CheckSurroundings();
+    }
+
+    private void CheckSurroundings()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
+    }
+
+    private void CheckIfCanJump()
+    {
+        if(isGrounded && rb.velocity.y <= 0)
+        {
+            amountOfJumpsLeft = amountOfJumps;
+        }
+
+        if(amountOfJumpsLeft <= 0)
+        {
+            canJump = false;
+        }
+        else
+        {
+            canJump = true;
+        }
     }
 
     private void CheckMovementDirection()
@@ -36,6 +76,15 @@ public class PlayerController : MonoBehaviour
         else if(!isFacingRight && movementInputDirection > 0)
         {
             Flip();
+        }
+
+        if(rb.velocity.x != 0)
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
         }
     }
 
@@ -56,12 +105,21 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        if(canJump)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);           
+            amountOfJumpsLeft--; 
+        }
     }
 
     private void ApplyMovement()
     {
         rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
+    }
+
+    private void OnDrawGizmos() 
+    {
+        Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);    
     }
 
 }
