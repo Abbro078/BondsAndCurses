@@ -27,11 +27,15 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingLedge;
     private bool canClimbLedge;
     private bool ledgeDetected;
+    private bool isDashing;
 
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
     private float wallJumpTimer;
+    private float dashTimeLeft;
+    private float lastImageXpos;
+    private float lastDash = -100f;
     
     public float movementSpeed = 10.0f;
     public float jumpForce = 16.0f;
@@ -50,6 +54,10 @@ public class PlayerController : MonoBehaviour
     public float ledgeClimbYOffset1 = 0f;
     public float ledgeClimbXOffset2 = 0f;
     public float ledgeClimbYOffset2 = 0f;
+    public float dashTime; 
+    public float dashSpeed;
+    public float distanceBetweenImages;
+    public float dashCoolDown;
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
@@ -80,6 +88,7 @@ public class PlayerController : MonoBehaviour
         CheckIfWallSliding();
         CheckJump();
         CheckLedgeClimb();
+        CheckDash();
     }
 
     private void FixedUpdate()
@@ -146,7 +155,12 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if(rb.velocity.x != 0)
+
+        /*if(rb.velocity.x != 0)
+        {
+            isWalking = true;
+        }*/
+        if(MathF.Abs(rb.velocity.x) >= 0.01f)
         {
             isWalking = true;
         }
@@ -154,6 +168,16 @@ public class PlayerController : MonoBehaviour
         {
             isWalking = false;
         }
+    }
+
+    public void DisableFlip()
+    {
+        canFlip = false;
+    }
+    
+    public void EnableFlip()
+    {
+        canFlip = true;
     }
 
     private void Flip()
@@ -208,6 +232,15 @@ public class PlayerController : MonoBehaviour
         {
             checkJumpMultiplier = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier); //big issue for future if needed
+        }
+
+        if(Input.GetButtonDown("Dash"))
+        {
+            if(Time.time >= (lastDash + dashCoolDown))
+            {
+                AttemptToDash();
+
+            }
         }
     }
 
@@ -307,6 +340,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius); 
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+        Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
 
     }
 
@@ -329,10 +363,28 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             canFlip = false;
         }
+        float time = 3.0f;
 
-        if(canClimbLedge)
+        /*if(canClimbLedge)
         {
             transform.position = ledgePos1;
+            Debug.Log(1);
+            yield return new WaitForSeconds(2.0f);   
+            Debug.Log(3);
+            FinishLedgeClimb();
+        }*/
+
+        if (canClimbLedge)
+        {
+            transform.position = ledgePos1;
+            Debug.Log(1);
+            StartCoroutine(WaitAndFinishLedgeClimb());
+        }
+
+        IEnumerator WaitAndFinishLedgeClimb()
+        {
+            yield return new WaitForSeconds(2.0f);
+            Debug.Log(3);
             FinishLedgeClimb();
         }
     }
@@ -346,6 +398,47 @@ public class PlayerController : MonoBehaviour
         ledgeDetected = false;
     }
 
+    private void AttemptToDash()
+    {
+        isDashing = true;
+        dashTimeLeft = dashTime;
+        lastDash = Time.time;
+
+        PlayerAfterImagePool.Instance.GetFromePool();
+        lastImageXpos = transform.position.x;
+    }
+
+    private void CheckDash()
+    {
+        if(isDashing)
+        {
+            if(dashTimeLeft > 0)
+            {
+                canMove = false;
+                canFlip = false;
+                rb.velocity = new Vector2(dashSpeed * facingDirection, 0);
+                dashTimeLeft -= Time.deltaTime;
+
+                if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+                {
+                    PlayerAfterImagePool.Instance.GetFromePool();
+                    lastImageXpos = transform.position.x;
+                }
+            }
+
+            if(dashTimeLeft <= 0 || isTouchingWall)
+            {
+                isDashing = false;
+                canMove = true;
+                canFlip = true;
+            }
+        }
+    }
+
+    public int GetFacingDirection()
+    {
+        return facingDirection;
+    }
 }
     /*private void Jump()
     {
