@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Animator anim;
+
+
     private Rigidbody2D rb;
 
     private int amountOfJumpsLeft;
@@ -74,6 +77,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
@@ -84,6 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         CheckInput();
         CheckMovementDirection();
+        UpdateAnimations();
         CheckIfCanJump();
         CheckIfWallSliding();
         CheckJump();
@@ -438,6 +443,15 @@ public class PlayerController : MonoBehaviour
     public int GetFacingDirection()
     {
         return facingDirection;
+    }
+
+    private void UpdateAnimations()
+    {
+        anim.SetBool("isWalking", isWalking);
+        anim.SetBool("isGrounded", isGrounded);
+        anim.SetFloat("yVelocity", rb.velocity.y);
+        anim.SetBool("isWallSliding", isWallSliding);
+
     }
 }
     /*private void Jump()
