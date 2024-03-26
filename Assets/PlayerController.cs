@@ -362,13 +362,21 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                ledgePos1 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) + ledgeClimbXOffset1, Mathf.Ceil(ledgePosBot.y) + ledgeClimbYOffset1);
-                ledgePos2 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) - ledgeClimbXOffset2, Mathf.Ceil(ledgePosBot.y) + ledgeClimbYOffset2);
+                ledgePos1 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) + ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
+                ledgePos2 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) - ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
             }
             canMove = false;
             canFlip = false;
+
+            anim.SetBool("canClimbLedge", canClimbLedge);
         }
-        float time = 3.0f;
+
+        if(canClimbLedge)
+        {
+            transform.position = ledgePos1;
+        }
+
+        //float time = 3.0f;
 
         /*if(canClimbLedge)
         {
@@ -379,7 +387,7 @@ public class PlayerController : MonoBehaviour
             FinishLedgeClimb();
         }*/
 
-        if (canClimbLedge)
+        /*if (canClimbLedge)
         {
             transform.position = ledgePos1;
             Debug.Log(1);
@@ -391,7 +399,8 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(2.0f);
             Debug.Log(3);
             FinishLedgeClimb();
-        }
+        }*/
+
     }
 
     public void FinishLedgeClimb()
@@ -401,6 +410,7 @@ public class PlayerController : MonoBehaviour
         canMove = true;
         canFlip = true;
         ledgeDetected = false;
+        anim.SetBool("canClimbLedge", canClimbLedge);
     }
 
     private void AttemptToDash()
