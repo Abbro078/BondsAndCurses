@@ -427,7 +427,7 @@ public class PlayerController : MonoBehaviour
     {
         if(isDashing)
         {
-            if(dashTimeLeft > 0)
+            if(dashTimeLeft > 0 && !isTouchingWall)
             {
                 canMove = false;
                 canFlip = false;
