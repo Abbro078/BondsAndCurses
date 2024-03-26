@@ -47,6 +47,5 @@ public class PlayerAfterImagePool : MonoBehaviour
         return instance;
     }
 
-    private float abc;
 
 }
