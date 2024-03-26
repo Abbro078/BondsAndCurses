@@ -2058,6 +2058,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &457310137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457310138}
+  m_Layer: 0
+  m_Name: LedgeCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &457310138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457310137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1016447726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1016447721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,28 +2124,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountOfJumps: 1
   movementSpeed: 10
-  jumpForce: 16
+  jumpForce: 20
   groundCheckRadius: 0.3
   wallCheckDistance: 0.4
   wallSlidingSpeed: 2
-  movmentForceInAir: 0
+  movmentForceInAir: 10
   airDragMultiplier: 0.95
   variableJumpHeightMultiplier: 0.5
-  wallHopForce: 0
-  wallJumpForce: 0
+  wallHopForce: 10
+  wallJumpForce: 20
   jumpTimerSet: 0.15
   turnTimerSet: 0.1
   wallJumpTimerSet: 0.5
-  ledgeClimbXOffset1: 0
+  ledgeClimbXOffset1: 0.3
   ledgeClimbYOffset1: 0
-  ledgeClimbXOffset2: 0
-  ledgeClimbYOffset2: 0
-  dashTime: 0
-  dashSpeed: 0
-  distanceBetweenImages: 0
-  dashCoolDown: 0
+  ledgeClimbXOffset2: 0.5
+  ledgeClimbYOffset2: 2
+  dashTime: 0.2
+  dashSpeed: 50
+  distanceBetweenImages: 0.1
+  dashCoolDown: 2.5
   wallHopDirection: {x: 0, y: 0}
-  wallJumpDirection: {x: 0, y: 0}
+  wallJumpDirection: {x: 1, y: 2}
   ledgePosBot: {x: 0, y: 0}
   ledgePos1: {x: 0, y: 0}
   ledgePos2: {x: 0, y: 0}
@@ -2123,7 +2154,7 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 1733369620}
   wallCheck: {fileID: 1922822449}
-  ledgeCheck: {fileID: 0}
+  ledgeCheck: {fileID: 457310138}
 --- !u!61 &1016447723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2263,6 +2294,7 @@ Transform:
   m_Children:
   - {fileID: 1733369620}
   - {fileID: 1922822449}
+  - {fileID: 457310138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1016447727
@@ -2374,7 +2406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1733369620}
   m_Layer: 0
-  m_Name: Ground Check
+  m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
