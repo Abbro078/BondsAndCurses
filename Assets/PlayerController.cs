@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckIfWallSliding()
     {
-        if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y <= 0 && !canClimbLedge)
+        if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y < 0 && !canClimbLedge)
         {
             isWallSliding = true;
         }
@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
 
         if(isTouchingWall)
         {
+            checkJumpMultiplier = false; //////
             canWallJump = true;
         }
 
@@ -200,7 +201,8 @@ public class PlayerController : MonoBehaviour
         movementInputDirection = Input.GetAxisRaw("Horizontal");
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || amountOfJumps > 0 && isTouchingWall)
+            //if(isGrounded || amountOfJumps > 0 && isTouchingWall)
+            if(isGrounded || (amountOfJumpsLeft > 0 && !isTouchingWall))
             {
                 NormalJump();
             }
@@ -211,7 +213,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Horizontal") && !isTouchingWall)
+        //if(Input.GetButtonDown("Horizontal") && !isTouchingWall)
+        if(Input.GetButtonDown("Horizontal") && isTouchingWall)
         {
             if(!isGrounded && movementInputDirection != facingDirection)
             {
@@ -244,7 +247,6 @@ public class PlayerController : MonoBehaviour
             if(Time.time >= (lastDash + dashCoolDown))
             {
                 AttemptToDash();
-
             }
         }
     }
@@ -327,7 +329,20 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
-        else if(isWallSliding)
+        else if(canMove)
+        {
+            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
+        }
+        
+        if (isWallSliding)
+        {
+            if(rb.velocity.y < -wallSlidingSpeed)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
+            }
+        }
+
+        /*else if(isWallSliding)
         {
             if(rb.velocity.y < -wallSlidingSpeed)
             {
@@ -337,7 +352,9 @@ public class PlayerController : MonoBehaviour
         else if(canMove)
         {
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
-        }
+        }*/
+
+
     }
 
     private void OnDrawGizmos() 
@@ -427,11 +444,12 @@ public class PlayerController : MonoBehaviour
     {
         if(isDashing)
         {
-            if(dashTimeLeft > 0 && !isTouchingWall)
+            //if(dashTimeLeft > 0 && !isTouchingWall)
+            if(dashTimeLeft > 0)
             {
                 canMove = false;
                 canFlip = false;
-                rb.velocity = new Vector2(dashSpeed * facingDirection, 0);
+                rb.velocity = new Vector2(dashSpeed * facingDirection, 0.0f);
                 dashTimeLeft -= Time.deltaTime;
 
                 if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
