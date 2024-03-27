@@ -35,7 +35,7 @@ public class PlayerAfterImagePool : MonoBehaviour
         availableObjects.Enqueue(instance);
     }
 
-    public GameObject GetFromePool()
+    public GameObject GetFromPool()
     {
         if(availableObjects.Count == 0)
         {

@@ -47,9 +47,9 @@ public class CombatDummyController : MonoBehaviour
         CheckKnockback();    
     }
 
-    private void Damage(float Amount)
+    private void Damage(float amount)
     {
-        currentHealth -= Amount;
+        currentHealth -= amount;
         playerFacingDirection = pc.GetFacingDirection();
 
         Instantiate(hitParticle, aliveAnim.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
@@ -62,7 +62,10 @@ public class CombatDummyController : MonoBehaviour
         {
             playerOnLeft = false;
         }
-
+        
+        aliveAnim.SetBool("playerOnLeft", playerOnLeft);
+        aliveAnim.SetTrigger("damage");
+        
         if(applyKnockback && currentHealth > 0.0f)
         {
             Knockback();

@@ -333,7 +333,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
-        
+
         if (isWallSliding)
         {
             if(rb.velocity.y < -wallSlidingSpeed)
@@ -436,7 +436,7 @@ public class PlayerController : MonoBehaviour
         dashTimeLeft = dashTime;
         lastDash = Time.time;
 
-        PlayerAfterImagePool.Instance.GetFromePool();
+        PlayerAfterImagePool.Instance.GetFromPool();
         lastImageXpos = transform.position.x;
     }
 
@@ -454,7 +454,7 @@ public class PlayerController : MonoBehaviour
 
                 if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
                 {
-                    PlayerAfterImagePool.Instance.GetFromePool();
+                    PlayerAfterImagePool.Instance.GetFromPool();
                     lastImageXpos = transform.position.x;
                 }
             }

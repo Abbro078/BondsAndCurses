@@ -17,7 +17,8 @@ public class PlayerAfterImageSprite : MonoBehaviour
     private SpriteRenderer playerSR;
     private Color color;
 
-    private void OnEnable() {
+    private void OnEnable() 
+    {
         SR = GetComponent<SpriteRenderer>();
         //player = gameObject.FindGameObjectsWithTag("Player").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,7 +32,8 @@ public class PlayerAfterImageSprite : MonoBehaviour
 
     }
     
-    private void Update() {
+    private void Update() 
+    {
         alpha *= alphaMultiplier;
         color = new Color(1f, 1f, 1f, alpha);
         SR.color = color;
