@@ -9,8 +9,7 @@ public class PlayerAfterImageSprite : MonoBehaviour
     private float timeActivated;
     private float alpha;
     [SerializeField]
-    private float alphaSet = 0.8f;
-    private float alphaMultiplier = 0.85f;
+    private float alphaSet = 0.8f, alphaDecay = 0.85f;
 
     private Transform player;
     private SpriteRenderer SR;
@@ -34,7 +33,7 @@ public class PlayerAfterImageSprite : MonoBehaviour
     
     private void Update() 
     {
-        alpha *= alphaMultiplier;
+        alpha -= alphaDecay * Time.deltaTime;
         color = new Color(1f, 1f, 1f, alpha);
         SR.color = color;
 
