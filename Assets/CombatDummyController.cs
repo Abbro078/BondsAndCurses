@@ -10,10 +10,14 @@ public class CombatDummyController : MonoBehaviour
     private float currentHealth, knockbackStart;
 
     [SerializeField]
+    private GameObject hitParticle;
+    [SerializeField]
     private bool applyKnockback, knockback;
+
     private PlayerController pc;
     private GameObject aliveGO, brokenTopGO, brokenBotGO;
     private Rigidbody2D rbAlive, rbBrokenTop, rbBrokenBot;
+    private Animator aliveAnim;
 
     private int playerFacingDirection;
     private bool playerOnLeft;
@@ -28,6 +32,7 @@ public class CombatDummyController : MonoBehaviour
         brokenTopGO = transform.Find("Broken Top").gameObject;
         brokenBotGO = transform.Find("Broken Bottom").gameObject;
         
+        aliveAnim = aliveGO.GetComponent<Animator>();
         rbAlive = aliveGO.GetComponent<Rigidbody2D>();
         rbBrokenBot = brokenBotGO.GetComponent<Rigidbody2D>();
         rbBrokenTop = brokenTopGO.GetComponent<Rigidbody2D>();
@@ -46,6 +51,8 @@ public class CombatDummyController : MonoBehaviour
     {
         currentHealth -= Amount;
         playerFacingDirection = pc.GetFacingDirection();
+
+        Instantiate(hitParticle, aliveAnim.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
 
         if(playerFacingDirection == 1)
         {

@@ -17,6 +17,14 @@ public class PlayerCombatController : MonoBehaviour
     private Transform attack1HitBoxPos;
     [SerializeField]
     private LayerMask WhatIsDamageable;    
+
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetBool("canAttack", combatEnabled);    
+    }
     private void Update() 
     {
         CheckCombatInput();
@@ -45,6 +53,9 @@ public class PlayerCombatController : MonoBehaviour
                 gotInput = false;
                 isAttacking = true;
                 isFirstAttack = !isFirstAttack;
+                anim.SetBool("attack1", true);
+                anim.SetBool("firstAttack", isFirstAttack);
+                anim.SetBool("isAttacking", isAttacking);
             }
         }
         if(Time.time >= lastInputTime + inputTimer)
@@ -61,12 +72,14 @@ public class PlayerCombatController : MonoBehaviour
         {
             collider.transform.parent.SendMessage("Damage", attack1Damage);
 
-        }
+       }
     }
 
     private void FinishAttack1()
     {
         isAttacking = false;
+        anim.SetBool("isAttacking", isAttacking);
+        anim.SetBool("attack1", false);
     }
 
     private void OnDrawGizmos() 
