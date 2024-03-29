@@ -2299,8 +2299,10 @@ MonoBehaviour:
   entityData: {fileID: 11400000, guid: 4c915e8db6b310a4f8be2cf3398c1128, type: 2}
   wallCheck: {fileID: 1506938696}
   ledgeCheck: {fileID: 1491181632}
+  playerCheck: {fileID: 2127505183}
   idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
   moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: 60f5f04346b3c884380b882eb30958d2, type: 2}
 --- !u!1 &1391925877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2339,7 @@ Transform:
   - {fileID: 1491181632}
   - {fileID: 1506938696}
   - {fileID: 188020405}
+  - {fileID: 2127505183}
   m_Father: {fileID: 1319194586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1391925879
@@ -2751,6 +2754,37 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1825778512}
+--- !u!1 &2127505182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127505183}
+  m_Layer: 7
+  m_Name: PlayerCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2127505183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127505182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.128, y: -0.492, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1391925878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4633736971914772942
 PrefabInstance:
   m_ObjectHideFlags: 0
