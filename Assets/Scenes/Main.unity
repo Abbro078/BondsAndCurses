@@ -2293,32 +2293,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1319194585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6926c314373519d488e1ad82b91e1d56, type: 3}
+  m_Script: {fileID: 11500000, guid: a6b2bee0ab72b5444983bac5573305cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.5
-  wallCheckDistance: 0.1
-  movementSpeed: 3
-  maxHealth: 30
-  knockbackDuration: 0.1
-  lastTouchDamageTime: 0
-  touchDamageCooldown: 0.2
-  touchDamage: 10
-  touchDamageWidth: 1.5
-  touchDamageHeight: 0.9
-  groundCheck: {fileID: 1491181632}
+  entityData: {fileID: 11400000, guid: 4c915e8db6b310a4f8be2cf3398c1128, type: 2}
   wallCheck: {fileID: 1506938696}
-  touchDamageCheck: {fileID: 188020405}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 512
-  knockbackSpeed: {x: 10, y: 5}
-  hitParticle: {fileID: 3881770086932321263, guid: 7d3dce88b6b8e7f4e9256747a6acdac2, type: 3}
-  deathChunkParticle: {fileID: 6234978142272778371, guid: 3709ae9d919813a4f90f7c9342b4eb91, type: 3}
-  deathBloodParticle: {fileID: 4469893620380233401, guid: a89162c1193435648a3ae01eff75b224, type: 3}
+  ledgeCheck: {fileID: 1491181632}
+  idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
+  moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
 --- !u!1 &1391925877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2421,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 8
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: deae1b7e274def0479c27b13b975cb3e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2491,7 +2473,7 @@ SpriteRenderer:
   m_SortingLayerID: 669630649
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -186976219, guid: f7fd9d4b604953f4f887d78e5e86a123, type: 3}
+  m_Sprite: {fileID: 1469081160, guid: 823935f8a15bac14bb2f101d393120a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2512,7 +2494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1491181632}
   m_Layer: 7
-  m_Name: GroundCheck
+  m_Name: LedgeCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
