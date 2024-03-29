@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveState : State
+public class ChargeState : State
 {
-    protected D_MoveState stateData;
-    protected bool isDetectingWall, isDetectingLedge, isPlayerInMinAgroRange;
-    public MoveState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_MoveState stateData) : base(entity, stateMachine, animBoolName)
+    protected D_ChargeState stateData;
+    protected bool isPlayerInMinAgroRange, isDetectingLedge, isDetectingWall, isChargeTimeOver;
+    public ChargeState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
     }
@@ -14,7 +14,8 @@ public class MoveState : State
     public override void Enter()
     {
         base.Enter();
-        entity.SetVelocity(stateData.movementSpeed);
+        isChargeTimeOver = false;
+        entity.SetVelocity(stateData.chargeSpeed);
     }
 
     public override void Exit()
@@ -25,18 +26,21 @@ public class MoveState : State
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if(Time.time >= startTime + stateData.chargeTime)
+        {
+            isChargeTimeOver = true;
+        }
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
-
     public override void DoChecks()
     {
         base.DoChecks();
+        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
-        isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
     }
 }
