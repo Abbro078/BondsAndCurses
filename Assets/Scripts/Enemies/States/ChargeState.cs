@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChargeState : State
 {
     protected D_ChargeState stateData;
-    protected bool isPlayerInMinAgroRange, isDetectingLedge, isDetectingWall, isChargeTimeOver;
+    protected bool isPlayerInMinAgroRange, isDetectingLedge, isDetectingWall, isChargeTimeOver, performCloseRangeAction;
     public ChargeState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_ChargeState stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
@@ -42,5 +42,6 @@ public class ChargeState : State
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isDetectingLedge = entity.CheckLedge();
         isDetectingWall = entity.CheckWall();
+        performCloseRangeAction = entity.checkPlayerInCloseRangeAction();
     }
 }

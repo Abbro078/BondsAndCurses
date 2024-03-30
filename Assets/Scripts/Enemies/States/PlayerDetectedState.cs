@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDetectedState : State
 {
     protected D_PlayerDetected stateData;
-    protected bool isPlayerInMinAgroRange, isPlayerInMaxAgroRange, performLongRangeAction;
+    protected bool isPlayerInMinAgroRange, isPlayerInMaxAgroRange, performLongRangeAction, performCloseRangeAction;
     public PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData) : base(entity, stateMachine, animBoolName)
     {
         this.stateData = stateData;
@@ -43,5 +43,6 @@ public class PlayerDetectedState : State
         base.DoChecks();
         isPlayerInMinAgroRange = entity.CheckPlayerInMinAgroRange();
         isPlayerInMaxAgroRange = entity.CheckPlayerInMaxAgroRange();
+        performCloseRangeAction = entity.checkPlayerInCloseRangeAction();
     }
 }
