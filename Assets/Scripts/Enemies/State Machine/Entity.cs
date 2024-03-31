@@ -17,7 +17,7 @@ public class Entity : MonoBehaviour
     protected bool isStunned, isDead;
 
     [SerializeField]
-    private Transform wallCheck, ledgeCheck, playerCheck, grounCheck;
+    private Transform wallCheck, ledgeCheck, playerCheck, groundCheck;
     private Vector2 velocityWorkSpace;
     private float currentHealth, currentStunResistance, lastDamageTime;
 
@@ -76,7 +76,7 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckGround()
     {
-        return Physics2D.OverlapCircle(grounCheck.position, entityData.grounCheckRadius, entityData.whatIsGround);
+        return Physics2D.OverlapCircle(groundCheck.position, entityData.groundCheckRadius, entityData.whatIsGround);
     }
 
     public virtual bool CheckPlayerInMinAgroRange()

@@ -2362,7 +2362,7 @@ MonoBehaviour:
   wallCheck: {fileID: 1506938696}
   ledgeCheck: {fileID: 1491181632}
   playerCheck: {fileID: 2127505183}
-  grounCheck: {fileID: 1043545866}
+  groundCheck: {fileID: 1043545866}
   idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
   moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 60f5f04346b3c884380b882eb30958d2, type: 2}

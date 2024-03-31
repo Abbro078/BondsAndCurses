@@ -17,9 +17,9 @@ MonoBehaviour:
   maxAgroDistance: 7
   minAgroDistance: 8
   closeRangeActionDistance: 1.75
-  maxHealth: 30
+  maxHealth: 50
   damageHopSpeed: 10
-  grounCheckRadius: 0.3
+  groundCheckRadius: 1
   stunResistance: 3
   strunRecoveryTime: 2
   whatIsGround:
