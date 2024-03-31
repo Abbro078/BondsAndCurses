@@ -2204,6 +2204,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8738111524743814346, guid: c1cce44eb9a6b8a41964a1f53db2d409, type: 3}
   m_PrefabInstance: {fileID: 4967643052860843606}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043545865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043545866}
+  m_Layer: 7
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043545866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043545865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1391925878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235176728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,12 +2362,15 @@ MonoBehaviour:
   wallCheck: {fileID: 1506938696}
   ledgeCheck: {fileID: 1491181632}
   playerCheck: {fileID: 2127505183}
+  grounCheck: {fileID: 1043545866}
   idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
   moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 60f5f04346b3c884380b882eb30958d2, type: 2}
   chargeStateData: {fileID: 11400000, guid: 50667619682bd0a45bd6c674724ef3d8, type: 2}
   lookForPlayerStateData: {fileID: 11400000, guid: 0529c29b221800143948e5b37ec609ac, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: 7eb835ca6b6636c4994443e68ccd1623, type: 2}
+  stunStateData: {fileID: 11400000, guid: 7e41b2c8d3720624199182be8db4d6b3, type: 2}
+  deadStateData: {fileID: 11400000, guid: e4f9727aa9806724d995fcdec391eed1, type: 2}
   meleeAttackPosition: {fileID: 819660126}
 --- !u!1 &1391925877
 GameObject:
@@ -2377,6 +2411,7 @@ Transform:
   - {fileID: 188020405}
   - {fileID: 2127505183}
   - {fileID: 819660126}
+  - {fileID: 1043545866}
   m_Father: {fileID: 1319194586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1391925879
@@ -2956,10 +2991,10 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1235176730}
-  - {fileID: 4967643052860843606}
+  - {fileID: 118039557}
   - {fileID: 1266986940}
+  - {fileID: 1235176730}
   - {fileID: 1739704804}
+  - {fileID: 4967643052860843606}
   - {fileID: 4633736971914772942}
   - {fileID: 1319194586}
-  - {fileID: 118039557}

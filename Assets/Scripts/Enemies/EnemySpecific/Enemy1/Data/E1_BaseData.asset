@@ -17,9 +17,15 @@ MonoBehaviour:
   maxAgroDistance: 7
   minAgroDistance: 8
   closeRangeActionDistance: 1.75
+  maxHealth: 30
+  damageHopSpeed: 10
+  grounCheckRadius: 0.3
+  stunResistance: 3
+  strunRecoveryTime: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
+  hitParticle: {fileID: 3881770086932321263, guid: 7d3dce88b6b8e7f4e9256747a6acdac2, type: 3}
