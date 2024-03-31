@@ -360,6 +360,7 @@ MonoBehaviour:
   knockbackDeathSpeedX: 15
   knockbackDeathSpeedY: 8
   deathToeque: 1
+  hitParticle: {fileID: 3881770086932321263, guid: 36960932928e99b4baf93ebbaf3303a1, type: 3}
   applyKnockback: 1
   knockback: 0
 --- !u!1 &7717364743128012597

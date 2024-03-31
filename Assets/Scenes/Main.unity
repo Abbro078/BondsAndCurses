@@ -2921,10 +2921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Dummy
       objectReference: {fileID: 0}
-    - target: {fileID: 8256252578321216238, guid: 8e4c80cd1d84893478c852dcb5487231, type: 3}
-      propertyPath: hitParticle
-      value: 
-      objectReference: {fileID: 3881770086932321263, guid: 36960932928e99b4baf93ebbaf3303a1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
