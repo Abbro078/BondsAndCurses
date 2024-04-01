@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3349b1d157dbc4742bc741c32b669dee, type: 3}
-  m_Name: E2_PlayerDetectedStateData
+  m_Script: {fileID: 11500000, guid: bd53afbf26a9b9c4f8c9d503098c833e, type: 3}
+  m_Name: E2_DodgeStateData
   m_EditorClassIdentifier: 
-  longActionTime: 1
+  dodgeSpeed: 15
+  dodgeTime: 0.2
+  dodgeCoolDown: 2
+  dodgeAngle: {x: 1, y: 1}
