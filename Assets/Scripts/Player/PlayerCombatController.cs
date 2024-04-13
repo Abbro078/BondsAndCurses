@@ -28,6 +28,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Start()
     {
+        isFirstAttack = true;
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         PC = GetComponent<PlayerController>();  
@@ -60,7 +61,7 @@ public class PlayerCombatController : MonoBehaviour
             {
                 gotInput = false;
                 isAttacking = true;
-                isFirstAttack = !isFirstAttack;
+                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack);
                 anim.SetBool("isAttacking", isAttacking);
