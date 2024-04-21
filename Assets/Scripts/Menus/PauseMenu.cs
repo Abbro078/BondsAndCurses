@@ -10,16 +10,20 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    public GameObject player;
+
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             if(GameIsPaused)
             {
+                player.GetComponent<PlayerController>().enabled = true;
                 Resume();
             }
             else
             {
+                player.GetComponent<PlayerController>().enabled = false;
                 Pause();
             }
         }
