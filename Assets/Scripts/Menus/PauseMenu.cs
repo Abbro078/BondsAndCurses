@@ -18,12 +18,10 @@ public class PauseMenu : MonoBehaviour
         {
             if(GameIsPaused)
             {
-                player.GetComponent<PlayerController>().enabled = true;
                 Resume();
             }
             else
             {
-                player.GetComponent<PlayerController>().enabled = false;
                 Pause();
             }
         }
@@ -34,6 +32,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        player.GetComponent<PlayerController>().enabled = true;
+
     }
 
     void Pause()
@@ -41,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        player.GetComponent<PlayerController>().enabled = false;
+
     }
 
     public void LoadMenu()
