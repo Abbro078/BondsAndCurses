@@ -26,7 +26,7 @@ public class CombatDummyController : MonoBehaviour
     {
         currentHealth = maxHealth;
 
-        pc = GameObject.Find("Player").GetComponent<PlayerController>();
+        //pc = GameObject.Find("Player").GetComponent<PlayerController>();
 
         aliveGO = transform.Find("Alive").gameObject;
         brokenTopGO = transform.Find("Broken Top").gameObject;
