@@ -10,12 +10,12 @@ public class PlayerCombatController : MonoBehaviour
     private bool isAttacking;
     private bool isFirstAttack;
 
-    private float lastInputTime = Mathf.NegativeInfinity;
+    private float lastInputTime, lastAttack2 = Mathf.NegativeInfinity;
     private AttackDetails attackDetails;
     [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage, stunDamageAmount = 1.0f;
+    private float inputTimer, attack1Radius, attack1Damage, attack2Radius, attack2Damage, stunDamageAmount, attack2Cooldown = 1.0f;
     [SerializeField]
-    private Transform attack1HitBoxPos;
+    private Transform attack1HitBoxPos, attack2HitBoxPos;
     [SerializeField]
     private LayerMask WhatIsDamageable;    
 
@@ -51,7 +51,30 @@ public class PlayerCombatController : MonoBehaviour
                 lastInputTime = Time.time;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            if(Time.time >= (attack2Cooldown + lastAttack2))
+            {
+                Attack2();
+            }
+        }
     }
+
+    private void Attack2()
+    {
+        if(!isAttacking)
+        {
+            lastAttack2 = Time.time;
+            Debug.Log("hoooaaaaa");
+            isAttacking = true;
+            //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
+            anim.SetBool("attack2", true);
+            anim.SetBool("isAttacking", isAttacking);
+        }
+    }
+
+
 
     private void CheckAttacks()
     {
@@ -63,7 +86,7 @@ public class PlayerCombatController : MonoBehaviour
                 isAttacking = true;
                 //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
                 anim.SetBool("attack1", true);
-                anim.SetBool("firstAttack", isFirstAttack);
+                anim.SetBool("firstAttack", isFirstAttack); 
                 anim.SetBool("isAttacking", isAttacking);
             }
         }
@@ -83,8 +106,10 @@ public class PlayerCombatController : MonoBehaviour
 
         foreach(Collider2D collider in detectedObjects)
         {
-            collider.transform.parent.SendMessage("Damage", attackDetails);
-        }
+            if (collider.transform.parent.CompareTag("Enemy"))
+            {
+                collider.transform.parent.SendMessage("Damage", attackDetails);
+            }        }
 
     }
 
@@ -93,6 +118,38 @@ public class PlayerCombatController : MonoBehaviour
         isAttacking = false;
         anim.SetBool("isAttacking", isAttacking);
         anim.SetBool("attack1", false);
+    }
+
+
+
+
+    private void CheckAttack2HitBox()
+    {
+        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack2HitBoxPos.position, attack2Radius, WhatIsDamageable);
+
+        attackDetails.damageAmount = attack2Damage;
+        attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
+
+        foreach(Collider2D collider in detectedObjects)
+        {
+            if (collider.transform.parent.CompareTag("Enemy"))
+            {
+                collider.transform.parent.SendMessage("Damage", attackDetails);
+            }
+            else if (collider.transform.parent.CompareTag("BreakableWall"))
+            {
+                collider.transform.parent.SendMessage("Damage2", attackDetails);
+            }
+        }
+
+    }
+
+    private void FinishAttack2()
+    {
+        isAttacking = false;
+        anim.SetBool("isAttacking", isAttacking);
+        anim.SetBool("attack2", false);
     }
 
     private void Damage(AttackDetails attackDetails)
@@ -119,5 +176,7 @@ public class PlayerCombatController : MonoBehaviour
     private void OnDrawGizmos() 
     {
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);    
+        Gizmos.DrawWireSphere(attack2HitBoxPos.position, attack2Radius);    
+
     }
 }

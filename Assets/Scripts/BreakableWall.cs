@@ -21,7 +21,7 @@ public class BreakableWall : MonoBehaviour
        
     }
 
-    private void Damage(AttackDetails attackDetails)
+    private void Damage2(AttackDetails attackDetails)
     {
         currentHealth -= attackDetails.damageAmount;
 
