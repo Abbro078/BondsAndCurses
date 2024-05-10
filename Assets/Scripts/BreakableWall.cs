@@ -8,15 +8,22 @@ public class BreakableWall : MonoBehaviour
     public float maxHealth;
     private float currentHealth;
 
+  
+
     
     void Start()
     {
-        currentHealth =  maxHealth;
+        currentHealth = maxHealth;
     }
 
-    public void DecreaseHealth(float amount)
+    void Update()
     {
-        currentHealth -= amount;
+       
+    }
+
+    private void Damage(AttackDetails attackDetails)
+    {
+        currentHealth -= attackDetails.damageAmount;
 
         if(currentHealth <= 0.0f)
         {
