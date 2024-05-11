@@ -16,12 +16,8 @@ public class Boss1_ChargeState : ChargeState
     {
         base.Enter();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
-        if(boss.getCurrentHealth() < 50 && !boss.isEnraged())
-        {
-            stateData.chargeSpeed*=2;
-            boss.setEnraged(true);
-        }
+        //UnityEngine.Debug.Log("here");
+        
     }
 
     public override void Exit()
@@ -36,6 +32,21 @@ public class Boss1_ChargeState : ChargeState
         Vector2 target = new Vector2(player.position.x, boss.rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(boss.rb.position, target, stateData.chargeSpeed * Time.fixedDeltaTime);
         boss.rb.MovePosition(newPos);
+        if(player.position.x < boss.rb.position.x && boss.facingDirection>=1)
+        {
+            boss.Flip();
+            UnityEngine.Debug.Log("123123");
+        }
+        else if(player.position.x > boss.rb.position.x && boss.facingDirection<1)
+        {
+            boss.Flip();
+        }
+
+        if(boss.getCurrentHealth() <= 50 && !boss.isEnragedSpeed())
+        {
+            stateData.chargeSpeed*=2;
+            boss.setEnragedSpeed(true);
+        }
 
         if(performCloseRangeAction)
         {

@@ -20,7 +20,8 @@ public class Boss1 : Entity
 
     [SerializeField]
     private Transform meleeAttackPosition;
-    private bool enraged = false;
+    private bool enragedSpeed = false, enragedAttack = false;
+    public float originalSpeed, originalAttack;
 
     public override void Start()
     {
@@ -32,6 +33,9 @@ public class Boss1 : Entity
         deadState = new Boss1_DeadState (this, stateMachine, "dead", deadStateData, this);
 
         stateMachine.Initialize(chargeState);
+
+        chargeStateData.chargeSpeed = 4.5f;
+        meleeAttackStateData.attackDamage = 10f;
 
     }
 
@@ -52,13 +56,21 @@ public class Boss1 : Entity
         }
     }
 
-    public bool isEnraged()
+    public bool isEnragedSpeed()
     {
-        return enraged;
+        return enragedSpeed;
+    }
+    public bool isEnragedAttack()
+    {
+        return enragedAttack;
     }
 
-    public void setEnraged(bool enraged)
+    public void setEnragedSpeed(bool enraged)
     {
-        this.enraged = enraged;
+        this.enragedSpeed = enraged;
+    }
+    public void setEnragedAttack(bool enraged)
+    {
+        this.enragedAttack = enraged;
     }
 }

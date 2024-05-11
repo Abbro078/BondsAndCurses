@@ -13,12 +13,6 @@ public class Boss1_MeleeAttackState : MeleeAttackState
     public override void Enter()
     {
         base.Enter();
-
-        if(boss.getCurrentHealth() < 50 && !boss.isEnraged())
-        {
-            stateData.attackDamage*=2;
-            boss.setEnraged(true);
-        }
     }
 
     public override void Exit()
@@ -30,6 +24,11 @@ public class Boss1_MeleeAttackState : MeleeAttackState
     {
         base.LogicUpdate();
 
+        if(boss.getCurrentHealth() <= 50 && !boss.isEnragedAttack())
+        {
+            stateData.attackDamage*=2;
+            boss.setEnragedAttack(true);
+        }
         if(isAnimationFinished)
         {
             stateMachine.ChangeState(boss.chargeState);
