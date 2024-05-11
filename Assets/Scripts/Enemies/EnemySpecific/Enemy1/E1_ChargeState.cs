@@ -31,7 +31,7 @@ public class E1_ChargeState : ChargeState
         {
             stateMachine.ChangeState(enemy.lookForPlayerState);
         }
-        else if(isChargeTimeOver)
+        else if(isChargeTimeOver || !isPlayerInMinAgroRange)
         {
             if(isPlayerInMinAgroRange)
             {
