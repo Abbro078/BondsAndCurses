@@ -3458,16 +3458,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceac6a80d7b85e442a80ae7e9309b011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 0}
+  entityData: {fileID: 11400000, guid: 00e3e5ee5d241b6439f23a82ddcfb51c, type: 2}
   wallCheck: {fileID: 903179347}
-  ledgeCheck: {fileID: 0}
-  playerCheck: {fileID: 0}
-  groundCheck: {fileID: 0}
-  idleStateData: {fileID: 0}
-  chargeStateData: {fileID: 0}
-  meleeAttackStateData: {fileID: 0}
-  deadStateData: {fileID: 0}
-  meleeAttackPosition: {fileID: 0}
+  ledgeCheck: {fileID: 903179352}
+  playerCheck: {fileID: 903179351}
+  groundCheck: {fileID: 903179350}
+  idleStateData: {fileID: 11400000, guid: dad7f2ff537f512439243ff885bdcec4, type: 2}
+  chargeStateData: {fileID: 11400000, guid: 95bc409cb80988f46a383046e990c241, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: c3907c772310fbf4fb52381da1354621, type: 2}
+  deadStateData: {fileID: 11400000, guid: a468aa9696db52a4f94dbce78cd14dba, type: 2}
+  meleeAttackPosition: {fileID: 903179349}
+--- !u!4 &903179349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5878671369777994041, guid: 3a129459ad745854b9d00f660995d200, type: 3}
+  m_PrefabInstance: {fileID: 903179345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903179350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4142297670726048335, guid: 3a129459ad745854b9d00f660995d200, type: 3}
+  m_PrefabInstance: {fileID: 903179345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903179351 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4615374184228450796, guid: 3a129459ad745854b9d00f660995d200, type: 3}
+  m_PrefabInstance: {fileID: 903179345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &903179352 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8799267569302079062, guid: 3a129459ad745854b9d00f660995d200, type: 3}
+  m_PrefabInstance: {fileID: 903179345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &914036519
 GameObject:
   m_ObjectHideFlags: 0
