@@ -240,9 +240,9 @@ GameObject:
   m_Component:
   - component: {fileID: 812851008889766307}
   - component: {fileID: 765049421313318688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wolf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,19 +275,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b2bee0ab72b5444983bac5573305cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 4c915e8db6b310a4f8be2cf3398c1128, type: 2}
+  entityData: {fileID: 11400000, guid: f5739a7ec4835c441a2af432e417e60e, type: 2}
   wallCheck: {fileID: 3518201450591693135}
   ledgeCheck: {fileID: 8448416975751447506}
   playerCheck: {fileID: 316825124655560281}
   groundCheck: {fileID: 7108809218000891569}
-  idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
-  moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
-  playerDetectedData: {fileID: 11400000, guid: 60f5f04346b3c884380b882eb30958d2, type: 2}
-  chargeStateData: {fileID: 11400000, guid: 50667619682bd0a45bd6c674724ef3d8, type: 2}
-  lookForPlayerStateData: {fileID: 11400000, guid: 0529c29b221800143948e5b37ec609ac, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: 7eb835ca6b6636c4994443e68ccd1623, type: 2}
-  stunStateData: {fileID: 11400000, guid: 7e41b2c8d3720624199182be8db4d6b3, type: 2}
-  deadStateData: {fileID: 11400000, guid: e4f9727aa9806724d995fcdec391eed1, type: 2}
+  idleStateData: {fileID: 11400000, guid: a8d8782267db5ae4294608d1296cb3c7, type: 2}
+  moveStateData: {fileID: 11400000, guid: ffccb32592f84084da77604cd74bdf92, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: 1cc319e843cc7fe48a80036d0bc2ec12, type: 2}
+  chargeStateData: {fileID: 11400000, guid: 8ace01ad2aeac0c4b836a94d7bcdb8ba, type: 2}
+  lookForPlayerStateData: {fileID: 11400000, guid: 7718f1a4c1aba3245b1e6e6703398749, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: 7dbdd4a4acfb38e4596f4e41cf187811, type: 2}
+  stunStateData: {fileID: 11400000, guid: 82d34abdcdbaa3744af72ddb2f3d4fad, type: 2}
+  deadStateData: {fileID: 11400000, guid: c10fc9d7dd9e4f648ba8f832678f1cfc, type: 2}
   meleeAttackPosition: {fileID: 489302311736395490}
 --- !u!1 &2115158058270121066
 GameObject:

@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    public GameObject player;
+    public GameObject[] players;
 
     void Update()
     {
@@ -32,8 +32,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        player.GetComponent<PlayerController>().enabled = true;
-
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().enabled = true;
+        }
     }
 
     void Pause()
@@ -41,8 +43,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        player.GetComponent<PlayerController>().enabled = false;
-
+        foreach (GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().enabled = false;
+        }
     }
 
     public void LoadMenu()

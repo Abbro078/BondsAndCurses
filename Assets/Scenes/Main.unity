@@ -5110,6 +5110,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1801555132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6778878775454754516, guid: 0a11905e55003334eb16a9cc3d88a32e, type: 3}
+  m_PrefabInstance: {fileID: 3118958505590820312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825778511
 GameObject:
   m_ObjectHideFlags: 3
@@ -6105,7 +6110,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 293538720}
-  player: {fileID: 765547724}
+  players:
+  - {fileID: 765547724}
+  - {fileID: 1801555132}
 --- !u!114 &2143531948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6308,42 +6315,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: entityData
-      value: 
-      objectReference: {fileID: 11400000, guid: f5739a7ec4835c441a2af432e417e60e, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: deadStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: c10fc9d7dd9e4f648ba8f832678f1cfc, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: idleStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: a8d8782267db5ae4294608d1296cb3c7, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: moveStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: ffccb32592f84084da77604cd74bdf92, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: stunStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: 82d34abdcdbaa3744af72ddb2f3d4fad, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: chargeStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: 8ace01ad2aeac0c4b836a94d7bcdb8ba, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: playerDetectedData
-      value: 
-      objectReference: {fileID: 11400000, guid: 1cc319e843cc7fe48a80036d0bc2ec12, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: meleeAttackStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: 7dbdd4a4acfb38e4596f4e41cf187811, type: 2}
-    - target: {fileID: 765049421313318688, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: lookForPlayerStateData
-      value: 
-      objectReference: {fileID: 11400000, guid: 7718f1a4c1aba3245b1e6e6703398749, type: 2}
     - target: {fileID: 812851008889766307, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.49
@@ -6387,14 +6358,6 @@ PrefabInstance:
     - target: {fileID: 1333091532516187603, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
       propertyPath: m_Name
       value: Wolf
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333091532516187603, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1333091532516187603, guid: 6f5c0654ec068804bae4ec99d37fec2c, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
