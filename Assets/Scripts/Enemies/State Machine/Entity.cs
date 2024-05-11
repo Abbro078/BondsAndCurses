@@ -145,6 +145,10 @@ public class Entity : MonoBehaviour
         aliveGO.transform.Rotate(0.0f, 180.0f, 0.0f);
     }
 
+    public virtual float getCurrentHealth()
+    {
+        return currentHealth;
+    }
     public virtual void OnDrawGizmos() 
     {
         Gizmos.DrawLine(wallCheck.position, wallCheck.position + (Vector3)(Vector2.right * facingDirection * entityData.wallCheckDistance));
