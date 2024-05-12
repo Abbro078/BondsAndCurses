@@ -15,12 +15,14 @@ public class PlayerStats : MonoBehaviour
     private GameManager GM;
     
     public HealthBar healthBar; 
+    public ManaBar manaBar;
 
     private void Start() 
     {
         currentHealth =  maxHealth;
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         healthBar.SetMaxHealth(maxHealth);    
+        manaBar.SetMaxMana(50);
     }
 
     public void DecreaseHealth(float amount)

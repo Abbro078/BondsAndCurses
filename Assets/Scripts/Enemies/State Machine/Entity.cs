@@ -22,6 +22,7 @@ public class Entity : MonoBehaviour
     private float currentHealth, currentStunResistance, lastDamageTime;
 
     public HealthBar healthBar;
+    public ManaBar manaBar;
 
 
     public virtual void Start()
@@ -132,6 +133,7 @@ public class Entity : MonoBehaviour
         }
 
         healthBar.SetHealth(getCurrentHealth());
+        manaBar.SetMana();
 
         if(currentStunResistance <= 0)
         {

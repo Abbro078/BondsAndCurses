@@ -349,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &812851008889766307
 Transform:
   m_ObjectHideFlags: 0
@@ -384,6 +384,7 @@ MonoBehaviour:
   playerCheck: {fileID: 316825124655560281}
   groundCheck: {fileID: 7108809218000891569}
   healthBar: {fileID: 87146487001326998}
+  manaBar: {fileID: 0}
   idleStateData: {fileID: 11400000, guid: a8d8782267db5ae4294608d1296cb3c7, type: 2}
   moveStateData: {fileID: 11400000, guid: ffccb32592f84084da77604cd74bdf92, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 1cc319e843cc7fe48a80036d0bc2ec12, type: 2}
@@ -742,7 +743,7 @@ RectTransform:
   m_Father: {fileID: 7384117046587273316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
