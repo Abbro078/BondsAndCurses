@@ -21,6 +21,8 @@ public class Entity : MonoBehaviour
     private Vector2 velocityWorkSpace;
     private float currentHealth, currentStunResistance, lastDamageTime;
 
+    public HealthBar healthBar;
+
 
     public virtual void Start()
     {
@@ -34,6 +36,7 @@ public class Entity : MonoBehaviour
         atsm = aliveGO.GetComponent<AnimationToStatemachine>();
 
         stateMachine = new FiniteStateMachine();
+        healthBar.SetMaxHealth(entityData.maxHealth);
     }
 
     public virtual void Update()
@@ -127,6 +130,8 @@ public class Entity : MonoBehaviour
         {
             lastDamageDirection = 1;
         }
+
+        healthBar.SetHealth(getCurrentHealth());
 
         if(currentStunResistance <= 0)
         {
