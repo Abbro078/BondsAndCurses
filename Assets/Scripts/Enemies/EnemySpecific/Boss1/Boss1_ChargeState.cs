@@ -35,7 +35,6 @@ public class Boss1_ChargeState : ChargeState
         if(player.position.x < boss.rb.position.x && boss.facingDirection>=1)
         {
             boss.Flip();
-            UnityEngine.Debug.Log("123123");
         }
         else if(player.position.x > boss.rb.position.x && boss.facingDirection<1)
         {

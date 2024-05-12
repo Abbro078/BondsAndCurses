@@ -9,6 +9,7 @@ public class PlayerCombatController : MonoBehaviour
     private bool gotInput;
     private bool isAttacking;
     private bool isFirstAttack;
+    public bool secondAttack = false;
 
     private float lastInputTime, lastAttack2 = Mathf.NegativeInfinity;
     private AttackDetails attackDetails;
@@ -63,14 +64,17 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Attack2()
     {
-        if(!isAttacking)
+        if(secondAttack)
         {
-            lastAttack2 = Time.time;
-            Debug.Log("hoooaaaaa");
-            isAttacking = true;
-            //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
-            anim.SetBool("attack2", true);
-            anim.SetBool("isAttacking", isAttacking);
+            if(!isAttacking)
+            {
+                lastAttack2 = Time.time;
+                Debug.Log("hoooaaaaa");
+                isAttacking = true;
+                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
+                anim.SetBool("attack2", true);
+                anim.SetBool("isAttacking", isAttacking);
+            }
         }
     }
 
@@ -109,7 +113,8 @@ public class PlayerCombatController : MonoBehaviour
             if (collider.transform.parent.CompareTag("Enemy"))
             {
                 collider.transform.parent.SendMessage("Damage", attackDetails);
-            }        }
+            }        
+        }
 
     }
 
