@@ -18,7 +18,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private Transform attack1HitBoxPos, attack2HitBoxPos;
     [SerializeField]
-    private LayerMask WhatIsDamageable;    
+    private LayerMask WhatIsDamageable;   
 
     private Animator anim;
 
@@ -174,6 +174,7 @@ public class PlayerCombatController : MonoBehaviour
                 direction = -1;
             }
 
+            PS.healthBar.SetHealth(PS.getCurrentHealth());
             PC.Knockback(direction);
         }
     }
