@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatEnabled: 1
+  secondAttack: 0
   inputTimer: 0.2
   attack1Radius: 0.8
   attack1Damage: 10
@@ -386,9 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67550fbfa6e8b6e4989e14070ff11d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
+  maxHealth: 50
   deathCunckParticle: {fileID: 6234978142272778371, guid: 3709ae9d919813a4f90f7c9342b4eb91, type: 3}
   deathBloodParticle: {fileID: 4469893620380233401, guid: a89162c1193435648a3ae01eff75b224, type: 3}
+  healthBar: {fileID: 0}
 --- !u!1 &7573616049022828256
 GameObject:
   m_ObjectHideFlags: 0
