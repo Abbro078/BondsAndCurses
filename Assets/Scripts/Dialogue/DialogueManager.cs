@@ -9,15 +9,27 @@ public class DialogueManager : MonoBehaviour
 {
 
     public TextMeshProUGUI nameText, dialogueText;
-
+    public Animator animator;
     private Queue<string> sentences;
-    void Start()
+    public float wordSpeed;
+    
+
+    private void Start()
     {
         sentences = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            DisplayNextSentence();
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
+        animator.SetBool("isOpen", true);
         //Debug.Log("Starting conversation with " + dialogue.name);
         nameText.text = dialogue.name;
 
@@ -41,12 +53,24 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         //Debug.Log(sentence);
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach(char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(wordSpeed);
+        }
     }
 
     public void EndDialogue()
     {
-        Debug.Log("End of conversation.");
+        //Debug.Log("End of conversation.");
+        animator.SetBool("isOpen", false);
     }
 
 }

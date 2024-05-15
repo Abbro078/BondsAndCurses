@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class NPCSystem : MonoBehaviour
 {
@@ -13,12 +15,18 @@ public class NPCSystem : MonoBehaviour
 
     private Rigidbody2D rbNPC, rbGorm;
 
+    public Dialogue dialogue;
+    public DialogueManager dialogueManager;
+
+
     void Start()
     {
         playerCombatController = gorm.GetComponent<PlayerCombatController>();
         rbNPC = npc.GetComponent<Rigidbody2D>();
         rbGorm = gorm.GetComponent<Rigidbody2D>();
         facingDirection = 1;
+
+        
     }
     
     void Update()
@@ -36,6 +44,9 @@ public class NPCSystem : MonoBehaviour
             {
                 Flip();
             }
+
+            dialogueManager.StartDialogue(dialogue);
+            
         }
     }
 
@@ -51,7 +62,8 @@ public class NPCSystem : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        playerDetected = false;    
+        playerDetected = false;
+        dialogueManager.EndDialogue();   
     }
 
     public virtual void Flip()
