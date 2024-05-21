@@ -2,29 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GormCombatController : MonoBehaviour
+public class TakashiCombatController : MonoBehaviour
 {
     [SerializeField]
     private bool combatEnabled;
     private bool gotInput;
     private bool isAttacking;
     private bool isFirstAttack;
-    public bool secondAttack = false;
 
-    private float lastInputTime, lastAttack2 = Mathf.NegativeInfinity;
+    private float lastInputTime;
     private AttackDetails attackDetails;
     [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage, attack2Radius, attack2Damage, stunDamageAmount, attack2Cooldown = 1.0f;
+    private float inputTimer, attack1Radius, attack1Damage; //, stunDamageAmount;
     [SerializeField]
-    private Transform attack1HitBoxPos, attack2HitBoxPos;
+    private Transform attack1HitBoxPos;
     [SerializeField]
     private LayerMask WhatIsDamageable;   
 
     private Animator anim;
 
-    private GormController PC;
+    private TakashiController PC;
 
-    private GormStats PS;
+    private TakashiStats PS;
 
 
     private void Start()
@@ -32,9 +31,10 @@ public class GormCombatController : MonoBehaviour
         isFirstAttack = true;
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
-        PC = GetComponent<GormController>();  
-        PS = GetComponent<GormStats>();
+        PC = GetComponent<TakashiController>();  
+        PS = GetComponent<TakashiStats>();
     }
+
     private void Update() 
     {
         CheckCombatInput();
@@ -50,34 +50,6 @@ public class GormCombatController : MonoBehaviour
                 Debug.Log("hyaaaaa");
                 gotInput = true;
                 lastInputTime = Time.time;
-            }
-        }
-
-        if(Input.GetKeyDown(KeyCode.X))
-        {
-            if(Time.time >= (attack2Cooldown + lastAttack2))
-            {
-                Attack2();
-            }
-        }
-    }
-
-    private void Attack2()
-    {
-        if (PlayerPrefs.GetInt("HasAbility", 0) == 1)
-        {
-            secondAttack=true;
-        }
-        if(secondAttack)
-        {
-            if(!isAttacking)
-            {
-                lastAttack2 = Time.time;
-                Debug.Log("hoooaaaaa");
-                isAttacking = true;
-                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
-                anim.SetBool("attack2", true);
-                anim.SetBool("isAttacking", isAttacking);
             }
         }
     }
@@ -110,7 +82,7 @@ public class GormCombatController : MonoBehaviour
 
         attackDetails.damageAmount = attack1Damage;
         attackDetails.position = transform.position;
-        attackDetails.stunDamageAmount = stunDamageAmount;
+        //attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach(Collider2D collider in detectedObjects)
         {
@@ -129,37 +101,6 @@ public class GormCombatController : MonoBehaviour
         anim.SetBool("attack1", false);
     }
 
-
-
-
-    private void CheckAttack2HitBox()
-    {
-        Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack2HitBoxPos.position, attack2Radius, WhatIsDamageable);
-
-        attackDetails.damageAmount = attack2Damage;
-        attackDetails.position = transform.position;
-        attackDetails.stunDamageAmount = stunDamageAmount;
-
-        foreach(Collider2D collider in detectedObjects)
-        {
-            if (collider.transform.parent.CompareTag("Enemy"))
-            {
-                collider.transform.parent.SendMessage("Damage", attackDetails);
-            }
-            else if (collider.transform.parent.CompareTag("BreakableWall"))
-            {
-                collider.transform.parent.SendMessage("Damage2", attackDetails);
-            }
-        }
-
-    }
-
-    private void FinishAttack2()
-    {
-        isAttacking = false;
-        anim.SetBool("isAttacking", isAttacking);
-        anim.SetBool("attack2", false);
-    }
 
     private void Damage(AttackDetails attackDetails)
     {
@@ -186,7 +127,7 @@ public class GormCombatController : MonoBehaviour
     private void OnDrawGizmos() 
     {
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);    
-        Gizmos.DrawWireSphere(attack2HitBoxPos.position, attack2Radius);    
+        //Gizmos.DrawWireSphere(attack2HitBoxPos.position, attack2Radius);    
 
     }
 }

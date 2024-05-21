@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TakashiController : MonoBehaviour
 {
     private Animator anim;
 
@@ -12,31 +11,31 @@ public class PlayerController : MonoBehaviour
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
-    private int lastWallJumpDirection;
+    // private int lastWallJumpDirection;
     public int amountOfJumps = 1;
 
     private bool isFacingRight = true;
     private bool isWalking;
     private bool isGrounded;
-    private bool isTouchingWall;
-    private bool isWallSliding;
+    // private bool isTouchingWall;
+    // private bool isWallSliding;
     private bool canNormalJump;
-    private bool canWallJump;
+    // private bool canWallJump;
     private bool isAttemptingToJump;
     private bool checkJumpMultiplier;
     private bool canMove;
     private bool canFlip;
-    private bool hasWallJumped;
-    private bool isTouchingLedge;
-    private bool canClimbLedge;
-    private bool ledgeDetected;
+    // private bool hasWallJumped;
+    // private bool isTouchingLedge;
+    // private bool canClimbLedge;
+    // private bool ledgeDetected;
     private bool isDashing;
     private bool knockback;
 
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
-    private float wallJumpTimer;
+    // private float wallJumpTimer;
     private float dashTimeLeft;
     private float lastImageXpos;
     private float lastDash = -100f;
@@ -47,20 +46,20 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed = 10.0f;
     public float jumpForce = 16.0f;
     public float groundCheckRadius;
-    public float wallCheckDistance;
-    public float wallSlidingSpeed;
-    public float movmentForceInAir;
+    // public float wallCheckDistance;
+    // public float wallSlidingSpeed;
+    // public float movmentForceInAir;
     public float airDragMultiplier = 0.95f;
     public float variableJumpHeightMultiplier = 0.5f;
-    public float wallHopForce;
-    public float wallJumpForce;
+    // public float wallHopForce;
+    // public float wallJumpForce;
     public float jumpTimerSet = 0.15f;
     public float turnTimerSet = 0.1f;
-    public float wallJumpTimerSet = 0.5f;
-    public float ledgeClimbXOffset1 = 0f;
-    public float ledgeClimbYOffset1 = 0f;
-    public float ledgeClimbXOffset2 = 0f;
-    public float ledgeClimbYOffset2 = 0f;
+    // public float wallJumpTimerSet = 0.5f;
+    // public float ledgeClimbXOffset1 = 0f;
+    // public float ledgeClimbYOffset1 = 0f;
+    // public float ledgeClimbXOffset2 = 0f;
+    // public float ledgeClimbYOffset2 = 0f;
     public float dashTime; 
     public float dashSpeed;
     public float distanceBetweenImages;
@@ -69,25 +68,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector2 knockbackSpeed;
 
-    public Vector2 wallHopDirection;
-    public Vector2 wallJumpDirection;
-    public Vector2 ledgePosBot;
-    public Vector2 ledgePos1;
-    public Vector2 ledgePos2;
+    // public Vector2 wallHopDirection;
+    // public Vector2 wallJumpDirection;
+    // public Vector2 ledgePosBot;
+    // public Vector2 ledgePos1;
+    // public Vector2 ledgePos2;
 
     public LayerMask whatIsGround;
 
     public Transform groundCheck;
-    public Transform wallCheck;
-    public Transform ledgeCheck;
+    // public Transform wallCheck;
+    // public Transform ledgeCheck;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
-        wallHopDirection.Normalize();
-        wallJumpDirection.Normalize();
+        // wallHopDirection.Normalize();
+        // wallJumpDirection.Normalize();
     }
 
     // Update is called once per frame
@@ -110,29 +109,29 @@ public class PlayerController : MonoBehaviour
         CheckSurroundings();
     }
 
-    private void CheckIfWallSliding()
-    {
-        if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y < 0 && !canClimbLedge)
-        {
-            isWallSliding = true;
-        }
-        else
-        {
-            isWallSliding = false;
-        }
+    // private void CheckIfWallSliding()
+    // {
+    //     if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y < 0 && !canClimbLedge)
+    //     {
+    //         isWallSliding = true;
+    //     }
+    //     else
+    //     {
+    //         isWallSliding = false;
+    //     }
 
-    }
+    // }
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
-        isTouchingLedge = Physics2D.Raycast(ledgeCheck.position, transform.right, wallCheckDistance, whatIsGround);
+        // isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+        // isTouchingLedge = Physics2D.Raycast(ledgeCheck.position, transform.right, wallCheckDistance, whatIsGround);
 
-        if(isTouchingWall && !isTouchingLedge && !ledgeDetected)
-        {
-            ledgeDetected = true;
-            ledgePosBot = wallCheck.position;
-        }
+        // if(isTouchingWall && !isTouchingLedge && !ledgeDetected)
+        // {
+        //     ledgeDetected = true;
+        //     // ledgePosBot = wallCheck.position;
+        // }
     }
 
     private void CheckIfCanJump()
@@ -142,11 +141,11 @@ public class PlayerController : MonoBehaviour
             amountOfJumpsLeft = amountOfJumps;
         }
 
-        if(isTouchingWall)
-        {
-            checkJumpMultiplier = false; //////
-            canWallJump = true;
-        }
+        // if(isTouchingWall)
+        // {
+        //     checkJumpMultiplier = false; //////
+        //     canWallJump = true;
+        // }
 
         if(amountOfJumpsLeft <= 0)
         {
@@ -196,7 +195,8 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if(!isWallSliding && canFlip && !knockback)
+        //if(!isWallSliding && canFlip && !knockback)
+        if(canFlip && !knockback)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
@@ -210,7 +210,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
         {
             //if(isGrounded || amountOfJumps > 0 && isTouchingWall)
-            if(isGrounded || (amountOfJumpsLeft > 0 && !isTouchingWall))
+            //if(isGrounded || (amountOfJumpsLeft > 0 && !isTouchingWall))
+            if(isGrounded || (amountOfJumpsLeft > 0))
             {
                 NormalJump();
             }
@@ -222,16 +223,16 @@ public class PlayerController : MonoBehaviour
         }
 
         //if(Input.GetButtonDown("Horizontal") && !isTouchingWall)
-        if(Input.GetButtonDown("Horizontal") && isTouchingWall)
-        {
-            if(!isGrounded && movementInputDirection != facingDirection)
-            {
-                canMove = false;
-                canFlip = false;
+        // if(Input.GetButtonDown("Horizontal") && isTouchingWall)
+        // {
+        //     if(!isGrounded && movementInputDirection != facingDirection)
+        //     {
+        //         canMove = false;
+        //         canFlip = false;
                 
-                turnTimer = turnTimerSet;
-            }
-        }
+        //         turnTimer = turnTimerSet;
+        //     }
+        // }
 
         if(turnTimer >= 0)
         {
@@ -264,11 +265,12 @@ public class PlayerController : MonoBehaviour
     {
         if(jumpTimer > 0)
         {
-            if(!isGrounded && isTouchingWall && movementInputDirection != 0 && movementInputDirection != facingDirection)
-            {
-                WallJump();
-            }
-            else if(isGrounded)
+            // if(!isGrounded && isTouchingWall && movementInputDirection != 0 && movementInputDirection != facingDirection)
+            // {
+            //     WallJump();
+            // }
+            //else if(isGrounded)
+            if(isGrounded)
             {
                 NormalJump();
             }
@@ -279,22 +281,22 @@ public class PlayerController : MonoBehaviour
             jumpTimer -= Time.deltaTime;
         }
 
-        if(wallJumpTimer > 0)
-        {
-            if(hasWallJumped && movementInputDirection == -lastWallJumpDirection)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, 0.0f);
-                hasWallJumped = false;
-            }
-            else if(wallJumpTimer <= 0)
-            {
-                hasWallJumped = false;
-            }
-            else
-            {
-                wallJumpTimer -= Time.deltaTime;
-            }
-        }
+        // if(wallJumpTimer > 0)
+        // {
+        //     if(hasWallJumped && movementInputDirection == -lastWallJumpDirection)
+        //     {
+        //         rb.velocity = new Vector2(rb.velocity.x, 0.0f);
+        //         hasWallJumped = false;
+        //     }
+        //     else if(wallJumpTimer <= 0)
+        //     {
+        //         hasWallJumped = false;
+        //     }
+        //     else
+        //     {
+        //         wallJumpTimer -= Time.deltaTime;
+        //     }
+        // }
     }
 
     private void NormalJump()
@@ -309,31 +311,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void WallJump()
-    {
-        if(canWallJump)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0.0f);
-            isWallSliding = false;
-            amountOfJumpsLeft = amountOfJumps;
-            amountOfJumpsLeft--;
-            Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
-            rb.AddForce(forceToAdd, ForceMode2D.Impulse);
-            jumpTimer = 0;
-            isAttemptingToJump = false;
-            checkJumpMultiplier = true;
-            turnTimer = 0;
-            canMove = true;
-            canFlip = true;
-            hasWallJumped = true;
-            wallJumpTimer = wallJumpTimerSet;
-            lastWallJumpDirection = -facingDirection;
-        }   
-    }
+    // private void WallJump()
+    // {
+    //     if(canWallJump)
+    //     {
+    //         rb.velocity = new Vector2(rb.velocity.x, 0.0f);
+    //         isWallSliding = false;
+    //         amountOfJumpsLeft = amountOfJumps;
+    //         amountOfJumpsLeft--;
+    //         Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
+    //         rb.AddForce(forceToAdd, ForceMode2D.Impulse);
+    //         jumpTimer = 0;
+    //         isAttemptingToJump = false;
+    //         checkJumpMultiplier = true;
+    //         turnTimer = 0;
+    //         canMove = true;
+    //         canFlip = true;
+    //         hasWallJumped = true;
+    //         wallJumpTimer = wallJumpTimerSet;
+    //         lastWallJumpDirection = -facingDirection;
+    //     }   
+    // }
 
     private void ApplyMovement()
     {
-        if(!isGrounded && !isWallSliding && movementInputDirection == 0 && !knockback)
+        //if(!isGrounded && !isWallSliding && movementInputDirection == 0 && !knockback)
+        if(!isGrounded && movementInputDirection == 0 && !knockback)
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
@@ -342,13 +345,13 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
 
-        if (isWallSliding)
-        {
-            if(rb.velocity.y < -wallSlidingSpeed)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
-            }
-        }
+        // if (isWallSliding)
+        // {
+        //     if(rb.velocity.y < -wallSlidingSpeed)
+        //     {
+        //         rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
+        //     }
+        // }
 
         /*else if(isWallSliding)
         {
@@ -369,74 +372,74 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius); 
 
-        Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
-        Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
+        // Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+        // Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
 
     }
 
-    private void CheckLedgeClimb()
-    {
-        if(ledgeDetected && !canClimbLedge)
-        {
-            canClimbLedge = true;
+    // private void CheckLedgeClimb()
+    // {
+    //     if(ledgeDetected && !canClimbLedge)
+    //     {
+    //         canClimbLedge = true;
 
-            if(isFacingRight)
-            {
-                ledgePos1 = new Vector2(MathF.Floor(ledgePosBot.x + wallCheckDistance) - ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
-                ledgePos2 = new Vector2(MathF.Floor(ledgePosBot.x + wallCheckDistance) + ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
-            }
-            else
-            {
-                ledgePos1 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) + ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
-                ledgePos2 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) - ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
-            }
-            canMove = false;
-            canFlip = false;
+    //         if(isFacingRight)
+    //         {
+    //             ledgePos1 = new Vector2(Mathf.Floor(ledgePosBot.x + wallCheckDistance) - ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
+    //             ledgePos2 = new Vector2(Mathf.Floor(ledgePosBot.x + wallCheckDistance) + ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
+    //         }
+    //         else
+    //         {
+    //             ledgePos1 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) + ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
+    //             ledgePos2 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) - ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
+    //         }
+    //         canMove = false;
+    //         canFlip = false;
 
-            anim.SetBool("canClimbLedge", canClimbLedge);
-        }
+    //         anim.SetBool("canClimbLedge", canClimbLedge);
+    //     }
 
-        if(canClimbLedge)
-        {
-            transform.position = ledgePos1;
-        }
+    //     if(canClimbLedge)
+    //     {
+    //         transform.position = ledgePos1;
+    //     }
 
-        //float time = 3.0f;
+    //     //float time = 3.0f;
 
-        /*if(canClimbLedge)
-        {
-            transform.position = ledgePos1;
-            Debug.Log(1);
-            yield return new WaitForSeconds(2.0f);   
-            Debug.Log(3);
-            FinishLedgeClimb();
-        }*/
+    //     /*if(canClimbLedge)
+    //     {
+    //         transform.position = ledgePos1;
+    //         Debug.Log(1);
+    //         yield return new WaitForSeconds(2.0f);   
+    //         Debug.Log(3);
+    //         FinishLedgeClimb();
+    //     }*/
 
-        /*if (canClimbLedge)
-        {
-            transform.position = ledgePos1;
-            Debug.Log(1);
-            StartCoroutine(WaitAndFinishLedgeClimb());
-        }
+    //     /*if (canClimbLedge)
+    //     {
+    //         transform.position = ledgePos1;
+    //         Debug.Log(1);
+    //         StartCoroutine(WaitAndFinishLedgeClimb());
+    //     }
 
-        IEnumerator WaitAndFinishLedgeClimb()
-        {
-            yield return new WaitForSeconds(2.0f);
-            Debug.Log(3);
-            FinishLedgeClimb();
-        }*/
+    //     IEnumerator WaitAndFinishLedgeClimb()
+    //     {
+    //         yield return new WaitForSeconds(2.0f);
+    //         Debug.Log(3);
+    //         FinishLedgeClimb();
+    //     }*/
 
-    }
+    // }
 
-    public void FinishLedgeClimb()
-    {
-        canClimbLedge = false;
-        transform.position = ledgePos2;
-        canMove = true;
-        canFlip = true;
-        ledgeDetected = false;
-        anim.SetBool("canClimbLedge", canClimbLedge);
-    }
+    // public void FinishLedgeClimb()
+    // {
+    //     canClimbLedge = false;
+    //     transform.position = ledgePos2;
+    //     canMove = true;
+    //     canFlip = true;
+    //     ledgeDetected = false;
+    //     anim.SetBool("canClimbLedge", canClimbLedge);
+    // }
 
     private void AttemptToDash()
     {
@@ -467,7 +470,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
-            if(dashTimeLeft <= 0 || isTouchingWall)
+            //if(dashTimeLeft <= 0 || isTouchingWall)
+            if(dashTimeLeft <= 0)
             {
                 isDashing = false;
                 canMove = true;
@@ -486,7 +490,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWalking", isWalking);
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("yVelocity", rb.velocity.y);
-        anim.SetBool("isWallSliding", isWallSliding);
+        //anim.SetBool("isWallSliding", isWallSliding);
 
     }
 
@@ -511,25 +515,3 @@ public class PlayerController : MonoBehaviour
         return isDashing;
     }
 }
-    /*private void Jump()
-    {
-        if(canJump && !isWallSliding)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);           
-            amountOfJumpsLeft--; 
-        }
-            /*else if(isWallSliding && movementInputDirection == 0 && canJump)
-            {
-                isWallSliding = false;
-                amountOfJumpsLeft--;
-                Vector2 forceToAdd = new Vector2(wallHopForce * wallHopDirection.x * -facingDirection, wallHopForce * wallHopDirection.y);
-                rb.AddForce(forceToAdd, ForceMode2D.Impulse);
-            }
-        else if((isWallSliding || isTouchingWall) && movementInputDirection != 0 && canJump)
-        {
-            isWallSliding = false;
-            amountOfJumpsLeft--;
-            Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
-            rb.AddForce(forceToAdd, ForceMode2D.Impulse);
-        }   
-    }*/

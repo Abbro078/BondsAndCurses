@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 812851008889766307}
-  - component: {fileID: 765049421313318688}
+  - component: {fileID: 947272366856888544}
   m_Layer: 7
   m_Name: Wolf
   m_TagString: Enemy
@@ -412,7 +412,7 @@ Transform:
   - {fileID: 7879393658587561693}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &765049421313318688
+--- !u!114 &947272366856888544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1333091532516187603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b2bee0ab72b5444983bac5573305cc, type: 3}
+  m_Script: {fileID: 11500000, guid: ba505a4ed4bfa2b4c887f8b4ac9a27fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: f5739a7ec4835c441a2af432e417e60e, type: 2}
@@ -436,10 +436,9 @@ MonoBehaviour:
   playerDetectedData: {fileID: 11400000, guid: 1cc319e843cc7fe48a80036d0bc2ec12, type: 2}
   chargeStateData: {fileID: 11400000, guid: 8ace01ad2aeac0c4b836a94d7bcdb8ba, type: 2}
   lookForPlayerStateData: {fileID: 11400000, guid: 7718f1a4c1aba3245b1e6e6703398749, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: 7dbdd4a4acfb38e4596f4e41cf187811, type: 2}
-  stunStateData: {fileID: 11400000, guid: 82d34abdcdbaa3744af72ddb2f3d4fad, type: 2}
+  dashAttackStateData: {fileID: 11400000, guid: 1c31af0b15a21e24e83e1d997c58e3b5, type: 2}
   deadStateData: {fileID: 11400000, guid: c10fc9d7dd9e4f648ba8f832678f1cfc, type: 2}
-  meleeAttackPosition: {fileID: 489302311736395490}
+  dashAttackPosition: {fileID: 489302311736395490}
 --- !u!1 &1649353756171153983
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,7 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489302311736395490}
   m_Layer: 7
-  m_Name: MeleeAttackPosition
+  m_Name: DashAttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,7 +917,7 @@ Transform:
   m_GameObject: {fileID: 8861043204207747425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.6, y: -1.15, z: 0}
+  m_LocalPosition: {x: 3.87, y: -1.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

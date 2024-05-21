@@ -29,8 +29,13 @@ public class Boss1_MeleeAttackState : MeleeAttackState
             stateData.attackDamage*=2;
             boss.setEnragedAttack(true);
         }
+        
         if(isAnimationFinished)
-        {
+        {   
+            if(boss.isEnragedAttack())
+            {
+                entity.anim.SetBool("attack2", true);
+            }
             stateMachine.ChangeState(boss.chargeState);
         }
     }
@@ -53,5 +58,10 @@ public class Boss1_MeleeAttackState : MeleeAttackState
     public override void FinishAttack()
     {
         base.FinishAttack();
+
+        if(boss.isEnragedAttack())
+        {
+            entity.anim.SetBool("attack2", false);
+        }
     }
 }

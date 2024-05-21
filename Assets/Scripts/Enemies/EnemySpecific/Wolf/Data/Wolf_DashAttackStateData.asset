@@ -9,8 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67907f4fe67b6cf4d9240f3ff70079ba, type: 3}
-  m_Name: B1_IdleStateData
+  m_Script: {fileID: 11500000, guid: d37a50d87038ccd40b5523bfe8bb8a64, type: 3}
+  m_Name: Wolf_DashAttackStateData
   m_EditorClassIdentifier: 
-  minIdleTime: 1
-  maxIdleTime: 2
+  attackRadius: 1
+  attackDamage: 20
+  dashXSpeed: 15
+  dashYSpeed: 15
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 512
