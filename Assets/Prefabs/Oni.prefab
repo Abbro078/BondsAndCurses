@@ -214,7 +214,7 @@ RectTransform:
   m_Father: {fileID: 5248800639281521364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -785,14 +785,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8792456706654318572}
-  - component: {fileID: 4873825676295110783}
+  - component: {fileID: 5559918900191305296}
   m_Layer: 0
   m_Name: Oni
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8792456706654318572
 Transform:
   m_ObjectHideFlags: 0
@@ -809,7 +809,7 @@ Transform:
   - {fileID: 963039012775899981}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4873825676295110783
+--- !u!114 &5559918900191305296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -818,23 +818,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7565095536822613479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6b2bee0ab72b5444983bac5573305cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 51c67a72ec5927e4fb6253363bc52bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 4c915e8db6b310a4f8be2cf3398c1128, type: 2}
+  entityData: {fileID: 11400000, guid: e45c635e56a864b4eb3e9bb89f995487, type: 2}
   wallCheck: {fileID: 8519167948327153083}
   ledgeCheck: {fileID: 8799267569302079062}
   playerCheck: {fileID: 4615374184228450796}
   groundCheck: {fileID: 4142297670726048335}
   healthBar: {fileID: 5878549445662716983}
-  idleStateData: {fileID: 11400000, guid: 8b767813bb003df408c4ade1e37b1db8, type: 2}
-  moveStateData: {fileID: 11400000, guid: fe4b5d165fb943f49a8a6876706cbde5, type: 2}
-  playerDetectedData: {fileID: 11400000, guid: 60f5f04346b3c884380b882eb30958d2, type: 2}
-  chargeStateData: {fileID: 11400000, guid: 50667619682bd0a45bd6c674724ef3d8, type: 2}
-  lookForPlayerStateData: {fileID: 11400000, guid: 0529c29b221800143948e5b37ec609ac, type: 2}
-  meleeAttackStateData: {fileID: 11400000, guid: 7eb835ca6b6636c4994443e68ccd1623, type: 2}
-  stunStateData: {fileID: 11400000, guid: 7e41b2c8d3720624199182be8db4d6b3, type: 2}
-  deadStateData: {fileID: 11400000, guid: e4f9727aa9806724d995fcdec391eed1, type: 2}
+  manaBar: {fileID: 0}
+  idleStateData: {fileID: 11400000, guid: 3f0f655144ec98349afbe9b184725b6b, type: 2}
+  moveStateData: {fileID: 11400000, guid: 5529501afec7a484b8036345006bd7af, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: 941827aae5ba736458757bece7a86b03, type: 2}
+  chargeStateData: {fileID: 11400000, guid: f96ec31b741e93e48a80afdfcdfef494, type: 2}
+  lookForPlayerStateData: {fileID: 11400000, guid: 8cd55547cff8fe64bbd9f2f66871cc15, type: 2}
+  meleeAttackStateData: {fileID: 11400000, guid: b885071dfba6d2a48b6720a0492e5b2a, type: 2}
+  deadStateData: {fileID: 11400000, guid: 3a7f3cfbddff9e4499d7c4de294764dc, type: 2}
   meleeAttackPosition: {fileID: 5878671369777994041}
 --- !u!1 &7650165175428509418
 GameObject:
