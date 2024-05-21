@@ -7,6 +7,11 @@ public class ManaBar : MonoBehaviour
 {
     public Slider slider;
     
+    private void Start()
+    {
+        slider.interactable = false; 
+    }
+
     public void SetMaxMana(float mana)
     {
         slider.maxValue = mana;

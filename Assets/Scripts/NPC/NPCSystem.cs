@@ -34,7 +34,9 @@ public class NPCSystem : MonoBehaviour
         if(playerDetected && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("new ability");
-            playerCombatController.secondAttack = true;
+            PlayerPrefs.SetInt("HasAbility", 1);
+            PlayerPrefs.Save();
+            //playerCombatController.secondAttack = true;
 
             if(rbGorm.position.x < rbNPC.position.x && facingDirection>=1)
             {

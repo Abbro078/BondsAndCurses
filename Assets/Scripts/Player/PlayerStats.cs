@@ -41,10 +41,25 @@ public class PlayerStats : MonoBehaviour
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
         GM.Respawn();
         Destroy(gameObject);
+
+        //after 3 seconds 
+        // GM.RestartScene();
+        // StartCoroutine(RestartSceneAfterDelay(3f));
+        
     }
 
     public float getCurrentHealth()
     {
         return currentHealth;
+    }
+
+
+    private IEnumerator RestartSceneAfterDelay(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
+        // Call the RestartScene method from the GameManager
+        GM.RestartScene();
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +21,11 @@ public class GameManager : MonoBehaviour
     private void Start() 
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+
+        if(SceneManager.GetActiveScene().name == "Main")   //TODO: change to the real name of the real scene
+        {
+            PlayerPrefs.DeleteKey("HasAbility");
+        }
     }
 
     private void Update() 
@@ -36,9 +42,16 @@ public class GameManager : MonoBehaviour
     {
         if(Time.time >= respawnTimeStart + respawnTime && respawn)
         {
-            var playerTemp = Instantiate(player, respawnPoint);
-            CVC.m_Follow = playerTemp.transform;
+            // var playerTemp = Instantiate(player, respawnPoint);
+            // CVC.m_Follow = playerTemp.transform;
             respawn = false;
+            RestartScene();
         }
+    }
+
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -64,6 +64,10 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Attack2()
     {
+        if (PlayerPrefs.GetInt("HasAbility", 0) == 1)
+        {
+            secondAttack=true;
+        }
         if(secondAttack)
         {
             if(!isAttacking)
