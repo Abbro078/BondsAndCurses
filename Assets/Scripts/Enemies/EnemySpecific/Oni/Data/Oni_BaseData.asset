@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Oni_BaseData
   m_EditorClassIdentifier: 
   wallCheckDistance: 0.2
-  ledgeCheckDistance: 0.4
-  maxAgroDistance: 4
-  minAgroDistance: 3
-  closeRangeActionDistance: 1
-  maxHealth: 30
-  damageHopSpeed: 3
+  ledgeCheckDistance: 1
+  maxAgroDistance: 8
+  minAgroDistance: 7
+  closeRangeActionDistance: 1.7
+  maxHealth: 50
+  damageHopSpeed: 10
   groundCheckRadius: 0.3
   stunResistance: 3
   strunRecoveryTime: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
-  hitParticle: {fileID: 0}
+    m_Bits: 512
+  hitParticle: {fileID: 3881770086932321263, guid: 7d3dce88b6b8e7f4e9256747a6acdac2, type: 3}

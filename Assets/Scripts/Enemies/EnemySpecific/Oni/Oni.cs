@@ -25,8 +25,6 @@ public class Oni : Entity
     [SerializeField]
     private D_MeleeAttack meleeAttackStateData;
     [SerializeField]
-    private D_StunState stunStateData;
-    [SerializeField]
     private D_DeadState deadStateData;
 
     [SerializeField]
