@@ -47,6 +47,7 @@ public class NPCSystem : MonoBehaviour
                 Flip();
             }
 
+            
             dialogueManager.StartDialogue(dialogue);
             
         }

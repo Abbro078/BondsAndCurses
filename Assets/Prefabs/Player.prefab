@@ -278,10 +278,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatEnabled: 1
+  secondAttack: 0
   inputTimer: 0.2
   attack1Radius: 0.8
   attack1Damage: 10
+  attack2Radius: 0
+  attack2Damage: 0
+  stunDamageAmount: 0
+  attack2Cooldown: 1
   attack1HitBoxPos: {fileID: 4264736139086264339}
+  attack2HitBoxPos: {fileID: 0}
   WhatIsDamageable:
     serializedVersion: 2
     m_Bits: 128
@@ -300,6 +306,8 @@ MonoBehaviour:
   maxHealth: 50
   deathCunckParticle: {fileID: 6234978142272778371, guid: 3709ae9d919813a4f90f7c9342b4eb91, type: 3}
   deathBloodParticle: {fileID: 4469893620380233401, guid: a89162c1193435648a3ae01eff75b224, type: 3}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
 --- !u!1 &4894341529108935675
 GameObject:
   m_ObjectHideFlags: 0

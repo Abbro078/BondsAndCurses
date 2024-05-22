@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     private Queue<string> sentences;
     public float wordSpeed;
+    [SerializeField]
+    private GameObject dialogueBox;
     
 
     private void Start()
@@ -29,6 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogueBox.SetActive(true);
         animator.SetBool("isOpen", true);
         //Debug.Log("Starting conversation with " + dialogue.name);
         nameText.text = dialogue.name;
@@ -71,6 +74,7 @@ public class DialogueManager : MonoBehaviour
     {
         //Debug.Log("End of conversation.");
         animator.SetBool("isOpen", false);
+        dialogueBox.SetActive(false);
     }
 
 }
