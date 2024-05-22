@@ -36,7 +36,7 @@ public class SceneController : MonoBehaviour
     {
         transitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("GormWithWolf"); //TODO: tide scene in buid settings
+        SceneManager.LoadScene("GormWithNPC"); //TODO: tide scene in buid settings
         //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transitionAnimator.SetTrigger("start");
     }

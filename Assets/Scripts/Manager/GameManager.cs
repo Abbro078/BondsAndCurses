@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Transform respawnPoint;
-    [SerializeField]
-    private GameObject player;
+    // [SerializeField]
+    // private Transform respawnPoint;
+    // [SerializeField]
+    // private GameObject player;
+    
     [SerializeField]
     private float respawnTime;
 
@@ -20,7 +21,11 @@ public class GameManager : MonoBehaviour
 
     private CinemachineVirtualCamera CVC;
 
-    public Animator respawnAnimation;
+    [SerializeField]
+    private Animator respawnAnimation;
+    
+    [SerializeField]
+    private GameObject deadText;
 
     private void Start() 
     {
@@ -30,16 +35,20 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.DeleteKey("HasAbility");
         }
+        deadText.SetActive(false);
+        
     }
 
     private void Update() 
     {
         CheckRespawn();    
     }
+
     public void Respawn()
     {
         respawnTimeStart = Time.time;
         respawn = true;
+        deadText.SetActive(true);
     }
 
     public void CheckRespawn()
@@ -56,8 +65,23 @@ public class GameManager : MonoBehaviour
 
     public void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneController.instance.NextLevel();
+        // deadText.SetActive(false);
+        StartCoroutine(LoadSceneAsync());
+
     }
 
+
+    IEnumerator LoadSceneAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        deadText.SetActive(false);
+    }
     
 }
