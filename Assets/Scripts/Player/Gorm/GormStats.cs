@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class GormStats : MonoBehaviour
 {
+    private float currentHealth;
+    
+    private GameManager GM;
+
     [SerializeField]
     private float maxHealth;
 
     [SerializeField]
-    private GameObject deathCunckParticle, deathBloodParticle;
+    private GameObject deathCunckParticle;
 
-    private float currentHealth;
-
-    private GameManager GM;
+    [SerializeField]
+    private GameObject deathBloodParticle;
     
-    public HealthBar healthBar; 
-    public ManaBar manaBar;
+    [SerializeField]
+    private HealthBar healthBar;
+
+    [SerializeField]
+    private ManaBar manaBar;
 
     private void Start() 
     {
@@ -47,5 +53,10 @@ public class GormStats : MonoBehaviour
     public float getCurrentHealth()
     {
         return currentHealth;
+    }
+
+    public void updateHealth()
+    {
+        healthBar.SetHealth(currentHealth);
     }
 }

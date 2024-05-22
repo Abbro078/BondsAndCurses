@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80117da10e4d8be4cae512dccc9ffdaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: llloell
+  names: []
   sentences:
   - Hey there! my name is llloell
   - I'm here to guide you through your dangerous adventures...
@@ -6127,10 +6127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c23ec34d8aa094c98eb41eb4e5024c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gorm: {fileID: 6778878776084483254}
-  npc: {fileID: 632928166}
   dialogue: {fileID: 1565399399}
   dialogueManager: {fileID: 923019657}
+  gorm: {fileID: 6778878776084483254}
+  npc: {fileID: 632928166}
 --- !u!114 &1565399399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6143,12 +6143,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80117da10e4d8be4cae512dccc9ffdaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: NPC
+  names:
+  - "NPC\t"
+  - Gorm
+  - NPC
+  - NPC
+  - Gorm
+  - NPC
+  - NPC
+  - Gorm
+  - NPC
+  - Gorm
+  - NPC
+  - Gorm
+  - Gorm
+  - NPC
+  - Gorm
+  - NPC
+  - NPC
+  - NPC
   sentences:
   - "Did you hear the roar too? My small shack under the hill rumbled so hard I thought
     I would have to change homes again\u2026"
-  - I'm here to guide you through your dangerous adventures...
-  - and wake you up in the morning of course!
+  - What happened here?
+  - "The Oni of the mountains has been defeated. The village will finally have its
+    peace to mourn its lost\u2026 "
+  - "Even though they shunned me away for my choices in life, I wouldn\u2019t wish
+    turmoil on anyone let alone those who were once my people. "
+  - "You shouldn\u2019t be here. You don\u2019t know what else is here, let alone
+    if this monster is truly dead. "
+  - "Oh, it\u2019s gone for sure\u2014its blood is turning black, no coming back
+    from that. "
+  - "Besides, a great monster like it that lived for centuries must have some great
+    treasures. I\u2019m here to collect."
+  - Centuries? Why has no one done a thing about a monster terrorizing innocent?
+    Is Higashi that indolent even in terms of its people?
+  - "I don\u2019t know\u2026 perhaps they have better things to do\u2026 "
+  - What could be more important than the people to their kingdom?
+  - "An intangible dark curse dark maybe\u2026"
+  - "\u2026 (pauses because no one should know that Hex is on the loose, Gorm will
+    change the subject)"
+  - What treasures have you found?
+  - "Lots of stuff\u2014mostly irrelevant to a soldier like you. "
+  - "\u2026 (Gorm is silent because the stranger seems to know a lot more than they
+    should)"
+  - 'But I have found this rather heavy metal glove. '
+  - 'You might find it useful in your secret endeavors. '
+  - 'I should focus now. Studying Oni bodies, let alone a large red one, is rare.
+    I need to get to it before it decomposes into air. '
 --- !u!1 &1624439213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6991,7 +7033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallBreakParticle: {fileID: 6234978142272778371, guid: 98a31169a3fbd2149a4cb35fcec6ee70, type: 3}
-  maxHealth: 20
 --- !u!61 &1895569140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7916,8 +7957,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5364820200829578848, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1492468695083902871}
   m_SourcePrefab: {fileID: 100100000, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+--- !u!1 &1492468695083902870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5364820200829578848, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+  m_PrefabInstance: {fileID: 1492468695083902869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1492468695083902871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492468695083902870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9416c7a7857cf7f428dc570b6da49bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundaryCollider: {fileID: 0}
 --- !u!1001 &1623908520651786738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8224,7 +8286,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 282934399977022974, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6778878776084483263}
   m_SourcePrefab: {fileID: 100100000, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
 --- !u!1001 &3676359648389490194
 PrefabInstance:
@@ -8366,6 +8431,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1307265224075452092, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
   m_PrefabInstance: {fileID: 2420914317922156030}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6778878776084483263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778878776084483254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9416c7a7857cf7f428dc570b6da49bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundaryCollider: {fileID: 0}
 --- !u!1001 &6799829695575238400
 PrefabInstance:
   m_ObjectHideFlags: 0

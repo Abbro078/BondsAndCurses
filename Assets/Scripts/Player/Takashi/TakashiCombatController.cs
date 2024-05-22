@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class TakashiCombatController : MonoBehaviour
 {
-    [SerializeField]
-    private bool combatEnabled;
+
+
     private bool gotInput;
     private bool isAttacking;
     private bool isFirstAttack;
 
     private float lastInputTime;
-    private AttackDetails attackDetails;
-    [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage; //, stunDamageAmount;
-    [SerializeField]
-    private Transform attack1HitBoxPos;
-    [SerializeField]
-    private LayerMask WhatIsDamageable;   
 
     private Animator anim;
 
     private TakashiController PC;
 
     private TakashiStats PS;
+
+    private AttackDetails attackDetails;
+
+    [SerializeField]
+    private bool combatEnabled = true;
+
+    [SerializeField]
+    private float inputTimer;
+
+    [SerializeField]
+    private float attack1Radius;
+
+    [SerializeField]
+    private float attack1Damage;
+
+    [SerializeField]
+    private Transform attack1HitBoxPos;
+
+    [SerializeField]
+    private LayerMask WhatIsDamageable;   
+
+    
 
 
     private void Start()
@@ -64,7 +79,6 @@ public class TakashiCombatController : MonoBehaviour
             {
                 gotInput = false;
                 isAttacking = true;
-                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack); 
                 anim.SetBool("isAttacking", isAttacking);
@@ -82,7 +96,6 @@ public class TakashiCombatController : MonoBehaviour
 
         attackDetails.damageAmount = attack1Damage;
         attackDetails.position = transform.position;
-        //attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach(Collider2D collider in detectedObjects)
         {
@@ -119,15 +132,13 @@ public class TakashiCombatController : MonoBehaviour
                 direction = -1;
             }
 
-            PS.healthBar.SetHealth(PS.getCurrentHealth());
+            PS.updateHealth();
             PC.Knockback(direction);
         }
     }
 
     private void OnDrawGizmos() 
     {
-        Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);    
-        //Gizmos.DrawWireSphere(attack2HitBoxPos.position, attack2Radius);    
-
+        Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);
     }
 }

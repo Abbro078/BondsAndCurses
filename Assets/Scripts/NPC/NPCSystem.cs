@@ -8,15 +8,24 @@ public class NPCSystem : MonoBehaviour
 {
 
     private bool playerDetected = false;
-    public GameObject gorm;
-    public GameObject npc;
-    private PlayerCombatController playerCombatController;
+    
     public int facingDirection {get; private set;}
 
+    private PlayerCombatController playerCombatController;
+    
     private Rigidbody2D rbNPC, rbGorm;
 
-    public Dialogue dialogue;
-    public DialogueManager dialogueManager;
+
+    [SerializeField]
+    private Dialogue dialogue;
+    
+    [SerializeField]
+    private DialogueManager dialogueManager;
+
+    [SerializeField]
+    private GameObject gorm;
+    [SerializeField]
+    private GameObject npc;
 
 
     void Start()

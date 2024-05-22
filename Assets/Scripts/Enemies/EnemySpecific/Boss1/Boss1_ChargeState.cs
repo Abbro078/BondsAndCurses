@@ -16,8 +16,6 @@ public class Boss1_ChargeState : ChargeState
     {
         base.Enter();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //UnityEngine.Debug.Log("here");
-        
     }
 
     public override void Exit()
@@ -51,21 +49,6 @@ public class Boss1_ChargeState : ChargeState
         {
             stateMachine.ChangeState(boss.meleeAttackState);
         }
-        // else if(!isDetectingLedge || isDetectingWall)
-        // {
-        //     stateMachine.ChangeState(boss.lookForPlayerState);
-        // }
-        // else if(isChargeTimeOver || !isPlayerInMinAgroRange)
-        // {
-        //     if(isPlayerInMinAgroRange)
-        //     {
-        //         stateMachine.ChangeState(boss.playerDetectedState);
-        //     }
-        //     else 
-        //     {
-        //         stateMachine.ChangeState(boss.lookForPlayerState);
-        //     }
-        // }
     }
 
     public override void PhysicsUpdate()

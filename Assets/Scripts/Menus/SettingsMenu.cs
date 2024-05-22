@@ -6,9 +6,14 @@ using UnityEngine.UI;
 public class SettingsMenu : MonoBehaviour
 {
 
-    public AudioMixer audioMixer;
-    public GameObject settingsMenu;
-    public Button backButton;
+    [SerializeField]
+    private AudioMixer audioMixer;
+
+    [SerializeField]
+    private GameObject settingsMenu;
+
+    [SerializeField]
+    private Button backButton;
     
     void Update()
     {

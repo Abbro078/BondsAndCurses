@@ -21,8 +21,11 @@ public class Entity : MonoBehaviour
     private Vector2 velocityWorkSpace;
     private float currentHealth, currentStunResistance, lastDamageTime;
 
-    public HealthBar healthBar;
-    public ManaBar manaBar;
+    [SerializeField]
+    private HealthBar healthBar;
+    
+    [SerializeField]
+    private ManaBar manaBar;
 
 
     public virtual void Start()

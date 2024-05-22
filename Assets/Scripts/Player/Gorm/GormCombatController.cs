@@ -4,28 +4,52 @@ using UnityEngine;
 
 public class GormCombatController : MonoBehaviour
 {
-    [SerializeField]
-    private bool combatEnabled;
     private bool gotInput;
     private bool isAttacking;
     private bool isFirstAttack;
-    public bool secondAttack = false;
-
-    private float lastInputTime, lastAttack2 = Mathf.NegativeInfinity;
+    private float lastInputTime; 
+    private float lastAttack2 = Mathf.NegativeInfinity;
     private AttackDetails attackDetails;
-    [SerializeField]
-    private float inputTimer, attack1Radius, attack1Damage, attack2Radius, attack2Damage, stunDamageAmount, attack2Cooldown = 1.0f;
-    [SerializeField]
-    private Transform attack1HitBoxPos, attack2HitBoxPos;
-    [SerializeField]
-    private LayerMask WhatIsDamageable;   
-
     private Animator anim;
-
     private GormController PC;
-
     private GormStats PS;
 
+    [SerializeField]
+    private bool combatEnabled = true;
+
+    [SerializeField]
+    private bool secondAttack = false;
+
+    [SerializeField]
+    private float inputTimer;
+
+    [SerializeField]
+    private float attack1Radius;
+
+    [SerializeField]
+    private float attack1Damage;
+
+    [SerializeField]
+    private float attack2Radius;
+
+    [SerializeField]
+    private float attack2Damage;
+
+    [SerializeField]
+    private float stunDamageAmount;
+
+    [SerializeField]
+    private float attack2Cooldown = 1.0f;
+
+    [SerializeField]
+    private Transform attack1HitBoxPos;
+
+    [SerializeField]
+    private Transform attack2HitBoxPos;
+
+    [SerializeField]
+    private LayerMask WhatIsDamageable;
+    
 
     private void Start()
     {
@@ -75,7 +99,6 @@ public class GormCombatController : MonoBehaviour
                 lastAttack2 = Time.time;
                 Debug.Log("hoooaaaaa");
                 isAttacking = true;
-                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
                 anim.SetBool("attack2", true);
                 anim.SetBool("isAttacking", isAttacking);
             }
@@ -92,7 +115,6 @@ public class GormCombatController : MonoBehaviour
             {
                 gotInput = false;
                 isAttacking = true;
-                //isFirstAttack = !isFirstAttack;                          //TODO: this was commented because we only have one attack for now
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack); 
                 anim.SetBool("isAttacking", isAttacking);
@@ -178,8 +200,8 @@ public class GormCombatController : MonoBehaviour
                 direction = -1;
             }
 
-            PS.healthBar.SetHealth(PS.getCurrentHealth());
-            PC.Knockback(direction);
+            PS.updateHealth();
+            PC.Knockback(direction);    
         }
     }
 

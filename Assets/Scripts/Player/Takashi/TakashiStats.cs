@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class TakashiStats : MonoBehaviour
 {
+    private float currentHealth;
+
+    private GameManager GM;
+
     [SerializeField]
     private float maxHealth;
 
     [SerializeField]
-    private GameObject deathCunckParticle, deathBloodParticle;
+    private GameObject deathCunckParticle;
+    [SerializeField]
+    private GameObject deathBloodParticle;
 
-    private float currentHealth;
-
-    private GameManager GM;
+    [SerializeField]
+    private HealthBar healthBar;
     
-    public HealthBar healthBar; 
-    public ManaBar manaBar;
-
+    [SerializeField]
+    private ManaBar manaBar; 
+    
     private void Start() 
     {
         currentHealth =  maxHealth;
@@ -47,5 +52,10 @@ public class TakashiStats : MonoBehaviour
     public float getCurrentHealth()
     {
         return currentHealth;
+    }
+
+    public void updateHealth()
+    {
+        healthBar.SetHealth(currentHealth);
     }
 }

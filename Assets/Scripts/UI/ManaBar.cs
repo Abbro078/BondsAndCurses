@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ManaBar : MonoBehaviour
 {
-    public Slider slider;
+    [SerializeField]
+    private Slider slider;
     
     private void Start()
     {

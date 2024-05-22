@@ -11,8 +11,6 @@ public class GormController : MonoBehaviour
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
-    // private int lastWallJumpDirection;
-    public int amountOfJumps = 1;
 
     private bool isFacingRight = true;
     private bool isWalking;
@@ -20,85 +18,85 @@ public class GormController : MonoBehaviour
     private bool isTouchingWall;
     private bool isWallSliding;
     private bool canNormalJump;
-    // private bool canWallJump;
     private bool isAttemptingToJump;
     private bool checkJumpMultiplier;
     private bool canMove;
     private bool canFlip;
-    // private bool hasWallJumped;
-    // private bool isTouchingLedge;
-    // private bool canClimbLedge;
-    // private bool ledgeDetected;
     private bool isDashing;
     private bool knockback;
 
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
-    // private float wallJumpTimer;
     private float dashTimeLeft;
     private float lastImageXpos;
     private float lastDash = -100f;
     private float knockbackStartTime;
+    
+    
     [SerializeField]
     private float knockbackDuration;
-    
-    public float movementSpeed = 10.0f;
-    public float jumpForce = 16.0f;
-    public float groundCheckRadius;
-    // public float wallCheckDistance;
-    // public float wallSlidingSpeed;
-    // public float movmentForceInAir;
-    public float airDragMultiplier = 0.95f;
-    public float variableJumpHeightMultiplier = 0.5f;
-    // public float wallHopForce;
-    // public float wallJumpForce;
-    public float jumpTimerSet = 0.15f;
-    public float turnTimerSet = 0.1f;
-    // public float wallJumpTimerSet = 0.5f;
-    // public float ledgeClimbXOffset1 = 0f;
-    // public float ledgeClimbYOffset1 = 0f;
-    // public float ledgeClimbXOffset2 = 0f;
-    // public float ledgeClimbYOffset2 = 0f;
-    public float dashTime; 
-    public float dashSpeed;
-    public float distanceBetweenImages;
-    public float dashCoolDown;
+
+    [SerializeField]
+    private float movementSpeed = 10.0f;
+
+    [SerializeField]
+    private float jumpForce = 16.0f;
+
+    [SerializeField]
+    private float groundCheckRadius;
+
+    [SerializeField]
+    private float airDragMultiplier = 0.95f;
+
+    [SerializeField]
+    private float variableJumpHeightMultiplier = 0.5f;
+
+    [SerializeField]
+    private float jumpTimerSet = 0.15f;
+
+    [SerializeField]
+    private float turnTimerSet = 0.1f;
+
+    [SerializeField]
+    private float dashTime;
+
+    [SerializeField]
+    private float dashSpeed;
+
+    [SerializeField]
+    private float distanceBetweenImages;
+
+    [SerializeField]
+    private float dashCoolDown;
 
     [SerializeField]
     private Vector2 knockbackSpeed;
 
-    // public Vector2 wallHopDirection;
-    // public Vector2 wallJumpDirection;
-    // public Vector2 ledgePosBot;
-    // public Vector2 ledgePos1;
-    // public Vector2 ledgePos2;
+    [SerializeField]
+    private LayerMask whatIsGround;
 
-    public LayerMask whatIsGround;
+    [SerializeField]
+    private Transform groundCheck;
 
-    public Transform groundCheck;
-    // public Transform wallCheck;
-    // public Transform ledgeCheck;
-    // Start is called before the first frame update
+    [SerializeField]
+    private int amountOfJumps = 1;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
-        // wallHopDirection.Normalize();
-        // wallJumpDirection.Normalize();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckInput();
         CheckMovementDirection();
         UpdateAnimations();
         CheckIfCanJump();
-        // CheckIfWallSliding();
         CheckJump();
-        // CheckLedgeClimb();
         CheckDash();
         CheckKnockback();
     }
@@ -109,29 +107,10 @@ public class GormController : MonoBehaviour
         CheckSurroundings();
     }
 
-    // private void CheckIfWallSliding()
-    // {
-    //     if(isTouchingWall && movementInputDirection == facingDirection && rb.velocity.y < 0 && !canClimbLedge)
-    //     {
-    //         isWallSliding = true;
-    //     }
-    //     else
-    //     {
-    //         isWallSliding = false;
-    //     }
-
-    // }
+    
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
-        // isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
-        // isTouchingLedge = Physics2D.Raycast(ledgeCheck.position, transform.right, wallCheckDistance, whatIsGround);
-
-        // if(isTouchingWall && !isTouchingLedge && !ledgeDetected)
-        // {
-        //     ledgeDetected = true;
-        //     // ledgePosBot = wallCheck.position;
-        // }
     }
 
     private void CheckIfCanJump()
@@ -140,12 +119,6 @@ public class GormController : MonoBehaviour
         {
             amountOfJumpsLeft = amountOfJumps;
         }
-
-        // if(isTouchingWall)
-        // {
-        //     checkJumpMultiplier = false; //////
-        //     canWallJump = true;
-        // }
 
         if(amountOfJumpsLeft <= 0)
         {
@@ -169,10 +142,6 @@ public class GormController : MonoBehaviour
         }
 
 
-        /*if(rb.velocity.x != 0)
-        {
-            isWalking = true;
-        }*/
         if(MathF.Abs(rb.velocity.x) >= 0.01f)
         {
             isWalking = true;
@@ -208,7 +177,6 @@ public class GormController : MonoBehaviour
         movementInputDirection = Input.GetAxisRaw("Horizontal");
         if(Input.GetButtonDown("Jump"))
         {
-            //if(isGrounded || amountOfJumps > 0 && isTouchingWall)
             if(isGrounded || (amountOfJumpsLeft > 0 && !isTouchingWall))
             {
                 NormalJump();
@@ -220,7 +188,6 @@ public class GormController : MonoBehaviour
             }
         }
 
-        //if(Input.GetButtonDown("Horizontal") && !isTouchingWall)
         if(Input.GetButtonDown("Horizontal") && isTouchingWall)
         {
             if(!isGrounded && movementInputDirection != facingDirection)
@@ -246,7 +213,7 @@ public class GormController : MonoBehaviour
         if(checkJumpMultiplier && !Input.GetButton("Jump"))
         {
             checkJumpMultiplier = false;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier); //big issue for future if needed
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier); 
         }
 
         if(Input.GetButtonDown("Dash"))
@@ -263,11 +230,6 @@ public class GormController : MonoBehaviour
     {
         if(jumpTimer > 0)
         {
-            // if(!isGrounded && isTouchingWall && movementInputDirection != 0 && movementInputDirection != facingDirection)
-            // {
-            //     WallJump();
-            // }
-            //else if(isGrounded)
             if(isGrounded)
             {
                 NormalJump();
@@ -278,23 +240,6 @@ public class GormController : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
         }
-
-        // if(wallJumpTimer > 0)
-        // {
-        //     if(hasWallJumped && movementInputDirection == -lastWallJumpDirection)
-        //     {
-        //         rb.velocity = new Vector2(rb.velocity.x, 0.0f);
-        //         hasWallJumped = false;
-        //     }
-        //     else if(wallJumpTimer <= 0)
-        //     {
-        //         hasWallJumped = false;
-        //     }
-        //     else
-        //     {
-        //         wallJumpTimer -= Time.deltaTime;
-        //     }
-        // }
     }
 
     private void NormalJump()
@@ -309,27 +254,6 @@ public class GormController : MonoBehaviour
         }
     }
 
-    // private void WallJump()
-    // {
-    //     if(canWallJump)
-    //     {
-    //         rb.velocity = new Vector2(rb.velocity.x, 0.0f);
-    //         isWallSliding = false;
-    //         amountOfJumpsLeft = amountOfJumps;
-    //         amountOfJumpsLeft--;
-    //         Vector2 forceToAdd = new Vector2(wallJumpForce * wallJumpDirection.x * movementInputDirection, wallJumpForce * wallJumpDirection.y);
-    //         rb.AddForce(forceToAdd, ForceMode2D.Impulse);
-    //         jumpTimer = 0;
-    //         isAttemptingToJump = false;
-    //         checkJumpMultiplier = true;
-    //         turnTimer = 0;
-    //         canMove = true;
-    //         canFlip = true;
-    //         hasWallJumped = true;
-    //         wallJumpTimer = wallJumpTimerSet;
-    //         lastWallJumpDirection = -facingDirection;
-    //     }   
-    // }
 
     private void ApplyMovement()
     {
@@ -342,101 +266,12 @@ public class GormController : MonoBehaviour
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
 
-        // if (isWallSliding)
-        // {
-        //     if(rb.velocity.y < -wallSlidingSpeed)
-        //     {
-        //         rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
-        //     }
-        // }
-
-        /*else if(isWallSliding)
-        {
-            if(rb.velocity.y < -wallSlidingSpeed)
-            {
-                rb.velocity = new Vector2(rb.velocity.x, -wallSlidingSpeed);
-            }
-        }
-        else if(canMove)
-        {
-            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
-        }*/
-
-
     }
 
     private void OnDrawGizmos() 
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius); 
-
-        // Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
-        // Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
-
     }
-
-    // private void CheckLedgeClimb()
-    // {
-    //     if(ledgeDetected && !canClimbLedge)
-    //     {
-    //         canClimbLedge = true;
-
-    //         if(isFacingRight)
-    //         {
-    //             ledgePos1 = new Vector2(Mathf.Floor(ledgePosBot.x + wallCheckDistance) - ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
-    //             ledgePos2 = new Vector2(Mathf.Floor(ledgePosBot.x + wallCheckDistance) + ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
-    //         }
-    //         else
-    //         {
-    //             ledgePos1 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) + ledgeClimbXOffset1, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset1);
-    //             ledgePos2 = new Vector2(Mathf.Ceil(ledgePosBot.x - wallCheckDistance) - ledgeClimbXOffset2, Mathf.Floor(ledgePosBot.y) + ledgeClimbYOffset2);
-    //         }
-    //         canMove = false;
-    //         canFlip = false;
-
-    //         anim.SetBool("canClimbLedge", canClimbLedge);
-    //     }
-
-    //     if(canClimbLedge)
-    //     {
-    //         transform.position = ledgePos1;
-    //     }
-
-    //     //float time = 3.0f;
-
-    //     /*if(canClimbLedge)
-    //     {
-    //         transform.position = ledgePos1;
-    //         Debug.Log(1);
-    //         yield return new WaitForSeconds(2.0f);   
-    //         Debug.Log(3);
-    //         FinishLedgeClimb();
-    //     }*/
-
-    //     /*if (canClimbLedge)
-    //     {
-    //         transform.position = ledgePos1;
-    //         Debug.Log(1);
-    //         StartCoroutine(WaitAndFinishLedgeClimb());
-    //     }
-
-    //     IEnumerator WaitAndFinishLedgeClimb()
-    //     {
-    //         yield return new WaitForSeconds(2.0f);
-    //         Debug.Log(3);
-    //         FinishLedgeClimb();
-    //     }*/
-
-    // }
-
-    // public void FinishLedgeClimb()
-    // {
-    //     canClimbLedge = false;
-    //     transform.position = ledgePos2;
-    //     canMove = true;
-    //     canFlip = true;
-    //     ledgeDetected = false;
-    //     anim.SetBool("canClimbLedge", canClimbLedge);
-    // }
 
     private void AttemptToDash()
     {
@@ -452,7 +287,6 @@ public class GormController : MonoBehaviour
     {
         if(isDashing)
         {
-            //if(dashTimeLeft > 0 && !isTouchingWall)
             if(dashTimeLeft > 0)
             {
                 canMove = false;
