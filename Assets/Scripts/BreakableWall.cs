@@ -29,6 +29,8 @@ public class BreakableWall : MonoBehaviour
         {
             Break();
         }
+
+        
     }
     
     private void Break()

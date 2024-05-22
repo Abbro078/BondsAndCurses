@@ -6038,6 +6038,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gorm
       objectReference: {fileID: 0}
+    - target: {fileID: 6778878775454754516, guid: 0a11905e55003334eb16a9cc3d88a32e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7488987557723306473, guid: 0a11905e55003334eb16a9cc3d88a32e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.76

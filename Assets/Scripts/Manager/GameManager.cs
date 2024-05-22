@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -17,7 +19,9 @@ public class GameManager : MonoBehaviour
     private bool respawn;
 
     private CinemachineVirtualCamera CVC;
-    
+
+    public Animator respawnAnimation;
+
     private void Start() 
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
@@ -54,4 +58,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    
 }
