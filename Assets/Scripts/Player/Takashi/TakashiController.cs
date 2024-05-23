@@ -11,6 +11,7 @@ public class TakashiController : MonoBehaviour
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
+    [SerializeField]
     private int amountOfJumps = 1;
 
     private bool isFacingRight = true;
@@ -169,7 +170,7 @@ public class TakashiController : MonoBehaviour
         movementInputDirection = Input.GetAxisRaw("Horizontal");
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || (amountOfJumpsLeft > 0))
+            if(isGrounded || (amountOfJumpsLeft > 1))
             {
                 NormalJump();
             }
