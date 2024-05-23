@@ -33,6 +33,10 @@ public class Oni_MoveState : MoveState
             oni.idleState.setFlipAfterIdle(true);
             stateMachine.ChangeState(oni.idleState);
         }
+        else if(entity.isDamaged == true)
+        {
+            stateMachine.ChangeState(oni.lookForPlayerState);
+        }
     }
 
     public override void PhysicsUpdate()

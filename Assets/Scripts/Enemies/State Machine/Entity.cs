@@ -16,6 +16,8 @@ public class Entity : MonoBehaviour
 
     protected bool isStunned, isDead;
 
+    public bool isDamaged;
+
     [SerializeField]
     private Transform wallCheck, ledgeCheck, playerCheck, groundCheck;
     private Vector2 velocityWorkSpace;
@@ -53,6 +55,8 @@ public class Entity : MonoBehaviour
         {
             ResetStunResistance();
         }
+
+        isDamaged=false;
     }
 
     public virtual void FixedUpdate() 
@@ -147,6 +151,7 @@ public class Entity : MonoBehaviour
         {
             isDead = true;
         }
+        isDamaged = true;
     }
 
     public virtual void Flip()

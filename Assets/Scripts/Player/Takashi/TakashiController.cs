@@ -11,8 +11,6 @@ public class TakashiController : MonoBehaviour
 
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
-    [SerializeField]
-    private int amountOfJumps = 1;
 
     private bool isFacingRight = true;
     private bool isWalking;
@@ -34,6 +32,9 @@ public class TakashiController : MonoBehaviour
     private float lastDash = -100f;
     private float knockbackStartTime;
 
+    [SerializeField]
+    private int amountOfJumps = 1;
+    
     [SerializeField]
     private float knockbackDuration;
 
@@ -197,7 +198,7 @@ public class TakashiController : MonoBehaviour
         if(checkJumpMultiplier && !Input.GetButton("Jump"))
         {
             checkJumpMultiplier = false;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier); //big issue for future if needed
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
 
         if(Input.GetButtonDown("Dash"))

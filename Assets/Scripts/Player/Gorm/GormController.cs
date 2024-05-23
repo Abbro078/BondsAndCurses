@@ -15,8 +15,6 @@ public class GormController : MonoBehaviour
     private bool isFacingRight = true;
     private bool isWalking;
     private bool isGrounded;
-    private bool isTouchingWall;
-    private bool isWallSliding;
     private bool canNormalJump;
     private bool isAttemptingToJump;
     private bool checkJumpMultiplier;
@@ -24,6 +22,7 @@ public class GormController : MonoBehaviour
     private bool canFlip;
     private bool isDashing;
     private bool knockback;
+    private bool firstJump;
 
     private float movementInputDirection;
     private float jumpTimer;
@@ -118,6 +117,7 @@ public class GormController : MonoBehaviour
         if(isGrounded && rb.velocity.y <= 0.01f)
         {
             amountOfJumpsLeft = amountOfJumps;
+            firstJump = false;
         }
 
         if(amountOfJumpsLeft <= 0)
@@ -164,7 +164,7 @@ public class GormController : MonoBehaviour
 
     private void Flip()
     {
-        if(!isWallSliding && canFlip && !knockback)
+        if(canFlip && !knockback)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
@@ -177,7 +177,7 @@ public class GormController : MonoBehaviour
         movementInputDirection = Input.GetAxisRaw("Horizontal");
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || (amountOfJumpsLeft > 0 && !isTouchingWall))
+            if(isGrounded || (amountOfJumpsLeft > 0 && firstJump))
             {
                 NormalJump();
             }
@@ -188,7 +188,7 @@ public class GormController : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Horizontal") && isTouchingWall)
+        if(Input.GetButtonDown("Horizontal"))
         {
             if(!isGrounded && movementInputDirection != facingDirection)
             {
@@ -251,13 +251,14 @@ public class GormController : MonoBehaviour
             jumpTimer = 0;
             isAttemptingToJump = false;
             checkJumpMultiplier = true;
+            firstJump = true;
         }
     }
 
 
     private void ApplyMovement()
     {
-        if(!isGrounded && !isWallSliding && movementInputDirection == 0 && !knockback)
+        if(!isGrounded && movementInputDirection == 0 && !knockback)
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
@@ -301,7 +302,7 @@ public class GormController : MonoBehaviour
                 }
             }
 
-            if(dashTimeLeft <= 0 || isTouchingWall)
+            if(dashTimeLeft <= 0)
             {
                 isDashing = false;
                 canMove = true;
@@ -320,8 +321,6 @@ public class GormController : MonoBehaviour
         anim.SetBool("isWalking", isWalking);
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("yVelocity", rb.velocity.y);
-        anim.SetBool("isWallSliding", isWallSliding);
-
     }
 
     public void Knockback(int direction)
