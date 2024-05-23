@@ -27,17 +27,17 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadLevel());
     }
 
-    public void LoadScene(string sceneName)
-    {
-        SceneManager.LoadSceneAsync(sceneName);
-    }
+    // public void LoadScene(string sceneName)
+    // {
+    //     SceneManager.LoadSceneAsync(sceneName);
+    // }
 
     IEnumerator LoadLevel()
     {
         transitionAnimator.SetTrigger("end");
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("GormWithNPC"); //TODO: tide scene in buid settings
-        //SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        // SceneManager.LoadScene("GormWithNPC"); //TODO: tide scene in buid settings
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
         transitionAnimator.SetTrigger("start");
     }
 }

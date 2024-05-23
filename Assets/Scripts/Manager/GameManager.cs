@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         CVC = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
 
-        if(SceneManager.GetActiveScene().name == "Main")   //TODO: change to the real name of the real scene
+        if(SceneManager.GetActiveScene().name == "GormWithNPC")   //TODO: change to the real name of the real scene
         {
             PlayerPrefs.DeleteKey("HasAbility");
         }

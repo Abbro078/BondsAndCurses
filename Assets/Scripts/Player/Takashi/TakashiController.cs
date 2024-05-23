@@ -24,6 +24,7 @@ public class TakashiController : MonoBehaviour
     private bool canFlip;
     private bool isDashing;
     private bool knockback;
+    private bool firstJump;
 
     private float movementInputDirection;
     private float jumpTimer;
@@ -112,6 +113,7 @@ public class TakashiController : MonoBehaviour
         if(isGrounded && rb.velocity.y <= 0.01f)
         {
             amountOfJumpsLeft = amountOfJumps;
+            firstJump = false;
         }
 
         if(amountOfJumpsLeft <= 0)
@@ -170,7 +172,7 @@ public class TakashiController : MonoBehaviour
         movementInputDirection = Input.GetAxisRaw("Horizontal");
         if(Input.GetButtonDown("Jump"))
         {
-            if(isGrounded || (amountOfJumpsLeft > 1))
+            if(isGrounded || (amountOfJumpsLeft > 0 && firstJump))
             {
                 NormalJump();
             }
@@ -233,6 +235,7 @@ public class TakashiController : MonoBehaviour
             jumpTimer = 0;
             isAttemptingToJump = false;
             checkJumpMultiplier = true;
+            firstJump = true;
         }
     }
 

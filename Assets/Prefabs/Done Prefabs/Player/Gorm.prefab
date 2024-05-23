@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3e85dd4daee964889a9e403afb89c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfJumps: 1
   knockbackDuration: 0.1
   movementSpeed: 10
   jumpForce: 20
@@ -206,6 +205,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 4731414577518770384}
+  amountOfJumps: 1
 --- !u!114 &3793281455952010410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   inputTimer: 0.2
   attack1Radius: 0.8
   attack1Damage: 10
-  attack2Radius: 2
+  attack2Radius: 1.5
   attack2Damage: 20
   stunDamageAmount: 0
   attack2Cooldown: 5
@@ -336,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 8338170313546155379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.91, y: -1.25, z: 0}
+  m_LocalPosition: {x: 3.4, y: -1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
