@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a6cd998002cf44eb703bfc983e2fff, type: 3}
   m_Name: Wolf_BaseData
   m_EditorClassIdentifier: 
-  wallCheckDistance: 0.2
+  wallCheckDistance: 0.5
   ledgeCheckDistance: 1
   maxAgroDistance: 10
   minAgroDistance: 10
