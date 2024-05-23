@@ -37,7 +37,16 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         foreach (GameObject player in players)
         {
-            player.GetComponent<PlayerController>().enabled = true;
+            if(player.name == "Takashi")
+            {
+                player.GetComponent<TakashiController>().enabled = true;
+                player.GetComponent<TakashiCombatController>().enabled = true;
+            }
+            else if(player.name == "Gorm")
+            {
+                player.GetComponent<GormController>().enabled = true;
+                player.GetComponent<GormCombatController>().enabled = true;
+            }   
         }
     }
 
@@ -48,7 +57,16 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         foreach (GameObject player in players)
         {
-            player.GetComponent<PlayerController>().enabled = false;
+            if(player.name == "Takashi")
+            {
+                player.GetComponent<TakashiController>().enabled = false;
+                player.GetComponent<TakashiCombatController>().enabled = false;
+            }
+            else if(player.name == "Gorm")
+            {
+                player.GetComponent<GormController>().enabled = false;
+                player.GetComponent<GormCombatController>().enabled = false;
+            }   
         }
     }
 

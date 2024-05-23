@@ -12145,6 +12145,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5790784975049827637, guid: 6abcc231ffc8ff240b0da58a4b6f21ad, type: 3}
+      propertyPath: players.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790784975049827637, guid: 6abcc231ffc8ff240b0da58a4b6f21ad, type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1963279672}
     - target: {fileID: 5896894656830457585, guid: 6abcc231ffc8ff240b0da58a4b6f21ad, type: 3}
       propertyPath: m_Pivot.x
       value: 0
