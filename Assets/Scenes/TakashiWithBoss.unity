@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &222436689
 Transform:
   m_ObjectHideFlags: 0
@@ -5044,7 +5044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3859079757457769827, guid: fd71cfea71b2ba7459d7967c984edc1d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7036659544280704338, guid: fd71cfea71b2ba7459d7967c984edc1d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5453,33 +5453,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 1955789176}
-    m_ColliderPaths:
-    - - X: -362669984
-        Y: 0
-      - X: -362654976
-        Y: 0
-      - X: -362669984
-        Y: 15000000
-      - X: -362654976
-        Y: 15000000
-      - X: -362669984
-        Y: 30000000
-      - X: -387345024
-        Y: 30000000
-      - X: -387330016
-        Y: 15000000
-      - X: -387345024
-        Y: 15000000
-      - X: -387330016
-        Y: 0
-      - X: -387345024
-        Y: 0
-      - X: -387330016
-        Y: -15000000
-      - X: -362654976
-        Y: -15000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -36.265526, y: -1.5}
