@@ -10,8 +10,6 @@ public class NPCSystem : MonoBehaviour
     private bool playerDetected = false;
     
     public int facingDirection {get; private set;}
-
-    private PlayerCombatController playerCombatController;
     
     private Rigidbody2D rbNPC, rbGorm;
 

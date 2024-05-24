@@ -188,16 +188,6 @@ public class GormController : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Horizontal"))
-        {
-            if(!isGrounded && movementInputDirection != facingDirection)
-            {
-                canMove = false;
-                canFlip = false;
-                
-                turnTimer = turnTimerSet;
-            }
-        }
 
         if(turnTimer >= 0)
         {
