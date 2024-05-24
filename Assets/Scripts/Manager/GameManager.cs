@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         // // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // SceneController.instance.NextLevel();
-        // deadText.SetActive(false);
+        // deadText.SetActive(false);   
         StartCoroutine(LoadSceneAsync());
 
     }

@@ -30,7 +30,7 @@ public class NPCSystem : MonoBehaviour
 
     void Start()
     {
-        playerCombatController = gorm.GetComponent<PlayerCombatController>();
+        //playerCombatController = gorm.GetComponent<PlayerCombatController>();
         rbNPC = npc.GetComponent<Rigidbody2D>();
         rbGorm = gorm.GetComponent<Rigidbody2D>();
         facingDirection = 1;
