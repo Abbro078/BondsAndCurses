@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class WallsActivate : MonoBehaviour
 {
-    public GameObject wall1, wall2;
+    [SerializeField]
+    private GameObject walls;
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            wall1.SetActive(true);
-            wall2.SetActive(true);
+            walls.SetActive(true);
         }
     }
     

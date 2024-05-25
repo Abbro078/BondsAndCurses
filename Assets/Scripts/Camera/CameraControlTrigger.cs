@@ -16,7 +16,7 @@ public class CameraControlTrigger : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerExit2D(Collider2D collision) 
     {
         Vector2 exitDirection = (collision.transform.position - collider2D.bounds.center).normalized;
         if(collision.CompareTag("Player"))

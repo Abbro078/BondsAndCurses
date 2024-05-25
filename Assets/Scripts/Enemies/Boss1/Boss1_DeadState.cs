@@ -13,6 +13,7 @@ public class Boss1_DeadState : DeadState
     public override void Enter()
     {
         base.Enter();
+        boss.DestroyWalls();
     }
 
     public override void Exit()

@@ -18,6 +18,8 @@ public class Boss1 : Entity
     [SerializeField]
     private Transform meleeAttackPosition;
     private bool enragedSpeed = false, enragedAttack = false;
+    [SerializeField]
+    private GameObject walls;
 
     public override void Start()
     {
@@ -67,5 +69,9 @@ public class Boss1 : Entity
     public void setEnragedAttack(bool enraged)
     {
         this.enragedAttack = enraged;
+    }
+    public void DestroyWalls()
+    {
+        walls.SetActive(false);
     }
 }
