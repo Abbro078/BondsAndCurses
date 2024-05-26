@@ -12,6 +12,9 @@ public class PauseMenu : MonoBehaviour
     private GameObject pauseMenuUI;
 
     [SerializeField]
+    private GameObject healthBar, manaBar;
+
+    [SerializeField]
     private GameObject[] players;
 
 
@@ -33,6 +36,8 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        healthBar.SetActive(true);
+        manaBar.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
         foreach (GameObject player in players)
@@ -53,6 +58,8 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        healthBar.SetActive(false);
+        manaBar.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
         foreach (GameObject player in players)
