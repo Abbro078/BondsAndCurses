@@ -934,8 +934,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -291.72, y: 11.7581}
-  m_SizeDelta: {x: 122.5, y: 37.1069}
+  m_AnchoredPosition: {x: -645.6, y: 28.803}
+  m_SizeDelta: {x: 168.23, y: 57.605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763870389
 MonoBehaviour:
@@ -1477,8 +1477,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -291.721, y: -95.24185}
-  m_SizeDelta: {x: 122.4928, y: 37.1069}
+  m_AnchoredPosition: {x: -645.6, y: -214.918}
+  m_SizeDelta: {x: 168.23, y: 51.699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1229738713
 MonoBehaviour:
@@ -1620,8 +1620,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45, y: 9}
-  m_SizeDelta: {x: -778.17737, y: -362.6562}
+  m_AnchoredPosition: {x: -80.12906, y: 8}
+  m_SizeDelta: {x: -1814.966, y: -854.059}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1231840817
 MonoBehaviour:
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -42.26581, y: 0, z: 0, w: 0}
+  m_margin: {x: 2.8890686, y: 2.2161255, z: 2.105835, w: 1.9957199}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2163,7 +2163,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1520662140}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2368,8 +2368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -263.78, y: -42.2419}
-  m_SizeDelta: {x: 178.38, y: 37.1069}
+  m_AnchoredPosition: {x: -575.99, y: -93.054}
+  m_SizeDelta: {x: 307.45, y: 64.832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587438066
 MonoBehaviour:
@@ -2538,10 +2538,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
