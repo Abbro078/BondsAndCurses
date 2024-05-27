@@ -1,0 +1,54 @@
+5/27/2024 6:50:00 PM: Starting tag and layer check.
+5/27/2024 6:50:00 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:50:00 PM: Layer 'gggg' does not exist.
+5/27/2024 6:50:00 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:50:00 PM: - damage
+5/27/2024 6:50:00 PM: - BreakableWall
+5/27/2024 6:50:00 PM: - New Game Object
+5/27/2024 6:50:00 PM: Layer 'gggg' does not exist.
+5/27/2024 6:50:00 PM: Tag and layer check complete.
+5/27/2024 6:50:53 PM: Starting tag and layer check.
+5/27/2024 6:50:53 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:50:53 PM: Layer 'gggg' does not exist.
+5/27/2024 6:50:53 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:50:53 PM: - damage
+5/27/2024 6:50:53 PM: - BreakableWall
+5/27/2024 6:50:53 PM: - New Game Object
+5/27/2024 6:50:53 PM: Layer 'gggg' does not exist.
+5/27/2024 6:50:53 PM: Tag and layer check complete.
+5/27/2024 6:54:25 PM: Starting tag and layer check.
+5/27/2024 6:54:25 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:54:25 PM: Layer 'gggg' does not exist.
+5/27/2024 6:54:25 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:54:25 PM: - damage
+5/27/2024 6:54:25 PM: - BreakableWall
+5/27/2024 6:54:25 PM: - New Game Object
+5/27/2024 6:54:25 PM: Layer 'gggg' does not exist.
+5/27/2024 6:54:25 PM: Tag and layer check complete.
+5/27/2024 6:56:30 PM: Starting tag and layer check.
+5/27/2024 6:56:30 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:56:30 PM: Layer 'gggg' does not exist.
+5/27/2024 6:56:30 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:56:30 PM: - damage
+5/27/2024 6:56:30 PM: - BreakableWall
+5/27/2024 6:56:30 PM: - New Game Object
+5/27/2024 6:56:30 PM: Layer 'gggg' does not exist.
+5/27/2024 6:56:30 PM: Tag and layer check complete.
+5/27/2024 6:56:58 PM: Starting tag and layer check.
+5/27/2024 6:56:58 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:56:58 PM: Layer 'gggg' does not exist.
+5/27/2024 6:56:58 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:56:58 PM: - damage
+5/27/2024 6:56:58 PM: - BreakableWall
+5/27/2024 6:56:58 PM: - New Game Object
+5/27/2024 6:56:58 PM: Layer 'gggg' does not exist.
+5/27/2024 6:56:58 PM: Tag and layer check complete.
+5/27/2024 6:58:20 PM: Starting tag and layer check.
+5/27/2024 6:58:20 PM: Tag 'BreakableWall' exists.
+5/27/2024 6:58:20 PM: Layer 'gggg' does not exist.
+5/27/2024 6:58:20 PM: Found 3 object(s) with tag 'BreakableWall':
+5/27/2024 6:58:20 PM: - damage
+5/27/2024 6:58:20 PM: - BreakableWall
+5/27/2024 6:58:20 PM: - New Game Object
+5/27/2024 6:58:20 PM: Layer 'gggg' does not exist.
+5/27/2024 6:58:20 PM: Tag and layer check complete.

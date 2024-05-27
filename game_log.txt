@@ -1,0 +1,118 @@
+5/27/2024 12:25:25 AM: gorm did attack 2
+5/27/2024 12:25:25 AM: damage2 is active
+5/27/2024 12:25:25 AM: gorm did damage 2
+5/27/2024 12:29:21 AM: gorm did attack 2
+5/27/2024 12:29:21 AM: damage2 is active
+5/27/2024 12:29:21 AM: gorm did damage 2
+5/27/2024 12:40:36 AM: gorm did attack 2
+5/27/2024 12:40:36 AM: damage2 is active
+5/27/2024 12:40:36 AM: gorm did damage 2
+5/27/2024 12:52:44 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:52:45 AM: gorm did attack 2
+5/27/2024 12:52:49 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:52:50 AM: gorm did attack 2
+5/27/2024 12:52:54 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:52:55 AM: gorm did attack 2
+5/27/2024 12:53:35 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:53:35 AM: gorm did attack 2
+5/27/2024 12:53:35 AM: damage2 is active
+5/27/2024 12:53:35 AM: gorm did damage 2
+5/27/2024 12:53:50 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:53:51 AM: gorm did attack 2
+5/27/2024 12:53:51 AM: damage2 is active
+5/27/2024 12:53:51 AM: gorm did damage 2
+5/27/2024 12:54:28 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:54:29 AM: gorm did attack 2
+5/27/2024 12:54:33 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:54:34 AM: gorm did attack 2
+5/27/2024 12:55:21 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:55:21 AM: gorm did attack 2
+5/27/2024 12:55:36 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:55:37 AM: gorm did attack 2
+5/27/2024 12:55:37 AM: damage2 is active
+5/27/2024 12:55:37 AM: gorm did damage 2
+5/27/2024 12:56:41 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:56:42 AM: gorm did attack 2
+5/27/2024 12:56:46 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:56:47 AM: gorm did attack 2
+5/27/2024 12:56:51 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:56:52 AM: gorm did attack 2
+5/27/2024 12:57:42 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:57:43 AM: gorm did attack 2
+5/27/2024 12:57:47 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:57:48 AM: gorm did attack 2
+5/27/2024 12:58:18 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:58:19 AM: gorm did attack 2
+5/27/2024 12:58:19 AM: damage2 is active
+5/27/2024 12:58:19 AM: gorm did damage 2
+5/27/2024 12:58:37 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:58:38 AM: gorm did attack 2
+5/27/2024 12:58:42 AM: this shouldnt work not until i talk to the npc
+5/27/2024 12:58:43 AM: gorm did attack 2
+5/27/2024 12:58:43 AM: damage2 is active
+5/27/2024 12:58:43 AM: gorm did damage 2
+5/27/2024 1:05:49 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:05:50 AM: gorm did attack 2
+5/27/2024 1:05:54 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:05:55 AM: gorm did attack 2
+5/27/2024 1:05:59 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:06:00 AM: gorm did attack 2
+5/27/2024 1:06:26 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:06:27 AM: gorm did attack 2
+5/27/2024 1:09:15 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:09:15 AM: gorm did attack 2
+5/27/2024 1:10:16 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:10:16 AM: gorm did attack 2
+5/27/2024 1:10:16 AM: damage2 is active
+5/27/2024 1:10:16 AM: gorm did damage 2
+5/27/2024 1:11:31 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:11:32 AM: gorm did attack 2
+5/27/2024 1:11:36 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:11:37 AM: gorm did attack 2
+5/27/2024 1:11:37 AM: damage2 is active
+5/27/2024 1:11:37 AM: gorm did damage 2
+5/27/2024 1:11:41 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:11:42 AM: gorm did attack 2
+5/27/2024 1:11:53 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:11:54 AM: gorm did attack 2
+5/27/2024 1:11:54 AM: damage2 is active
+5/27/2024 1:11:54 AM: gorm did damage 2
+5/27/2024 1:12:24 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:12:24 AM: gorm did attack 2
+5/27/2024 1:12:24 AM: damage2 is active
+5/27/2024 1:12:24 AM: gorm did damage 2
+5/27/2024 1:12:59 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:13:00 AM: gorm did attack 2
+5/27/2024 1:13:00 AM: damage2 is active
+5/27/2024 1:13:35 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:13:35 AM: gorm did attack 2
+5/27/2024 1:13:35 AM: damage2 is active
+5/27/2024 1:13:56 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:13:56 AM: gorm did attack 2
+5/27/2024 1:14:01 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:14:01 AM: gorm did attack 2
+5/27/2024 1:14:06 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:14:07 AM: gorm did attack 2
+5/27/2024 1:14:07 AM: damage2 is active
+5/27/2024 1:14:31 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:14:31 AM: gorm did attack 2
+5/27/2024 1:14:36 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:14:37 AM: gorm did attack 2
+5/27/2024 1:14:37 AM: damage2 is active
+5/27/2024 1:14:42 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:14:43 AM: gorm did attack 2
+5/27/2024 1:15:01 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:15:02 AM: gorm did attack 2
+5/27/2024 1:15:02 AM: damage2 is active
+5/27/2024 1:19:26 AM: this shouldnt work not until i talk to the npc
+5/27/2024 1:19:26 AM: gorm did attack 2
+5/27/2024 1:19:26 AM: damage2 is active
+5/27/2024 1:19:26 AM: gorm did damage 2
+5/27/2024 6:50:04 PM: this shouldnt work not until i talk to the npc
+5/27/2024 6:50:05 PM: gorm did attack 2
+5/27/2024 6:50:05 PM: damage2 is active
+5/27/2024 6:50:05 PM: gorm did damage 2
+5/27/2024 6:50:56 PM: this shouldnt work not until i talk to the npc
+5/27/2024 6:50:57 PM: gorm did attack 2
+5/27/2024 6:50:57 PM: damage2 is active
+5/27/2024 6:50:57 PM: gorm did damage 2

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GormCombatController : MonoBehaviour
@@ -49,6 +51,8 @@ public class GormCombatController : MonoBehaviour
 
     [SerializeField]
     private LayerMask WhatIsDamageable;
+    private static string logFilePath = "game_log.txt";
+
     
 
     private void Start()
@@ -88,11 +92,7 @@ public class GormCombatController : MonoBehaviour
 
     private void Attack2()
     {
-        if (PlayerPrefs.GetInt("HasAbility", 0) == 1)
-        {
-            secondAttack=true;
-        }
-        if(secondAttack)
+        if(isSecondAttackAvailable())
         {
             if(!isAttacking)
             {
@@ -164,13 +164,16 @@ public class GormCombatController : MonoBehaviour
 
         foreach(Collider2D collider in detectedObjects)
         {
-            if (collider.transform.parent.CompareTag("Enemy"))
+            if(collider.transform.parent != null)
             {
-                collider.transform.parent.SendMessage("Damage", attackDetails);
-            }
-            else if (collider.transform.parent.CompareTag("BreakableWall"))
-            {
-                collider.transform.parent.SendMessage("Damage2", attackDetails);
+                if (collider.transform.parent.CompareTag("Enemy"))
+                {
+                    collider.transform.parent.SendMessage("Damage", attackDetails);
+                }
+                else if (collider.transform.parent.CompareTag("BreakableWall"))
+                {
+                    collider.transform.parent.SendMessage("Damage2", attackDetails);
+                }
             }
         }
 
@@ -205,10 +208,25 @@ public class GormCombatController : MonoBehaviour
         }
     }
 
+    private bool isSecondAttackAvailable()
+    {
+        if (PlayerPrefs.GetInt("HasAbility", 0) == 1)
+        {
+            secondAttack=true;
+            return true;
+        }
+        else 
+        {
+            secondAttack=false;
+            return false;
+        }
+    }
+
     private void OnDrawGizmos() 
     {
         Gizmos.DrawWireSphere(attack1HitBoxPos.position, attack1Radius);    
         Gizmos.DrawWireSphere(attack2HitBoxPos.position, attack2Radius);    
 
     }
+
 }

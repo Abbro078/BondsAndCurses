@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class BreakableWall : MonoBehaviour
@@ -13,8 +14,9 @@ public class BreakableWall : MonoBehaviour
     
     private void Break()
     {
-        Vector3 particlePosition = new Vector3 (-37f, -1f, 0);
+        Vector3 particlePosition = new Vector3 (-38f, -4.5f, 0);
         Instantiate(wallBreakParticle, particlePosition, wallBreakParticle.transform.rotation);
         Destroy(gameObject);
     }
+
 }

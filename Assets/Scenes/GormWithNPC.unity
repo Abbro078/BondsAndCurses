@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -3.439911
       objectReference: {fileID: 0}
+    - target: {fileID: 2762002534765358555, guid: 6abcc231ffc8ff240b0da58a4b6f21ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 194.9
+      objectReference: {fileID: 0}
     - target: {fileID: 3015041287774489946, guid: 6abcc231ffc8ff240b0da58a4b6f21ad, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -452,6 +456,10 @@ PrefabInstance:
     - target: {fileID: 1505869323466537228, guid: 012a0db10d39b7d488dcc52be077d291, type: 3}
       propertyPath: m_Name
       value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1505869323466537228, guid: 012a0db10d39b7d488dcc52be077d291, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4654664976561239001, guid: 012a0db10d39b7d488dcc52be077d291, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1037,6 +1045,10 @@ PrefabInstance:
     - target: {fileID: 1307265224075452092, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793281455952010410, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
+      propertyPath: attack2Radius
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7280763853989304538, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
       propertyPath: manaBar
@@ -5551,7 +5563,7 @@ GameObject:
   - component: {fileID: 1354198572}
   m_Layer: 7
   m_Name: damage
-  m_TagString: Untagged
+  m_TagString: BreakableWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6384,6 +6396,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[0]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[2]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[3]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[5]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[6]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[8]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[10]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[13]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[15]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[16]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
+    - target: {fileID: 608256902296873238, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
+      propertyPath: names.Array.data[17]
+      value: 'Village Outcast '
+      objectReference: {fileID: 0}
     - target: {fileID: 1342116662127159979, guid: 59de95e4f4cf3e74c902f444c06110e4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -6835,6 +6891,7 @@ GameObject:
   - component: {fileID: 2095850991}
   - component: {fileID: 2095850993}
   - component: {fileID: 2095850992}
+  - component: {fileID: 2095850994}
   m_Layer: 6
   m_Name: BreakableWall
   m_TagString: BreakableWall
@@ -6890,7 +6947,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.7808895, y: -3.312093}
+  m_Offset: {x: -0.9047699, y: -3.312093}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6901,7 +6958,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9777336, y: 4.3461404}
+  m_Size: {x: 2.7299728, y: 4.3461404}
   m_EdgeRadius: 0
 --- !u!114 &2095850993
 MonoBehaviour:
@@ -6916,6 +6973,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallBreakParticle: {fileID: 6234978142272778371, guid: 98a31169a3fbd2149a4cb35fcec6ee70, type: 3}
+--- !u!114 &2095850994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095850990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572719235b9e32d468bf9029a799bca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: BreakableWall
+  layerName: gggg
 --- !u!1001 &8821394245066041640
 PrefabInstance:
   m_ObjectHideFlags: 0
