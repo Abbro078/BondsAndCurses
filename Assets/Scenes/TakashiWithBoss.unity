@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: platform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8296709740577729417, guid: e7ef3204290e17f41a93b426c87260fd, type: 3}
+      propertyPath: damagedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c143ea9aececb94fb4718211f13d370, type: 3}
     - target: {fileID: 8371081879631493232, guid: e7ef3204290e17f41a93b426c87260fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.6
@@ -6030,10 +6034,18 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1715892052}
+    - target: {fileID: 1120825321049525338, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c5fa0f480369814d9cb31ddaebac07f, type: 3}
     - target: {fileID: 3215954540014408610, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
       propertyPath: boundaryCollider
       value: 
       objectReference: {fileID: 1294991721}
+    - target: {fileID: 3913288180144978312, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 77585f38c4e07e541adf860151db66a0, type: 3}
     - target: {fileID: 5364820200829578848, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
       propertyPath: m_Name
       value: Takashi
@@ -6078,9 +6090,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7794916544493364661, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+      propertyPath: swingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 74d1264f1e2f89949bb183521c20eb5d, type: 3}
     - target: {fileID: 8995792124167469307, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
       propertyPath: amountOfJumps
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995792124167469307, guid: 52df9c7a5566db34fae9ad7bc9298403, type: 3}
+      propertyPath: movementSoundVolume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1131,6 +1131,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793281455952010410, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
+      propertyPath: swingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 74d1264f1e2f89949bb183521c20eb5d, type: 3}
+    - target: {fileID: 3793281455952010410, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
       propertyPath: attack2Radius
       value: 1.5
       objectReference: {fileID: 0}
@@ -1142,6 +1146,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 342851194}
+    - target: {fileID: 7280763853989304538, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c09f59492ae566438486d92005f4164, type: 3}
     - target: {fileID: 8511814331799298140, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
       propertyPath: m_Size.x
       value: 1.3800001
@@ -1159,7 +1167,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 282934399977022974, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
-      insertIndex: -1
+      insertIndex: 8
       addedObject: {fileID: 1375526992}
   m_SourcePrefab: {fileID: 100100000, guid: ec04d67c09aa7bb48b2b8605af7d0d4b, type: 3}
 --- !u!1 &764256591

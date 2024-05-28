@@ -23,6 +23,9 @@ public class GormStats : MonoBehaviour
     [SerializeField]
     private ManaBar manaBar;
 
+    [SerializeField]
+    private AudioClip deathSound;
+
     private void Start() 
     {
         currentHealth =  maxHealth;
@@ -46,6 +49,7 @@ public class GormStats : MonoBehaviour
         Instantiate(deathCunckParticle, transform.position, deathCunckParticle.transform.rotation);
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
         GM.Respawn();
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
         Destroy(gameObject);
     
     }

@@ -9,6 +9,9 @@ public class GormController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private AudioSource audioSource;
+
+
     private int amountOfJumpsLeft;
     private int facingDirection = 1;
 
@@ -70,6 +73,10 @@ public class GormController : MonoBehaviour
     private float dashCoolDown;
 
     [SerializeField]
+    [Range(0f, 1f)]
+    private float movementSoundVolume = 0.5f;
+
+    [SerializeField]
     private Vector2 knockbackSpeed;
 
     [SerializeField]
@@ -86,7 +93,10 @@ public class GormController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
         amountOfJumpsLeft = amountOfJumps;
+        audioSource.volume = movementSoundVolume; 
     }
 
     void Update()
@@ -98,6 +108,7 @@ public class GormController : MonoBehaviour
         CheckJump();
         CheckDash();
         CheckKnockback();
+        HandleMovementSound();
     }
 
     private void FixedUpdate()
@@ -332,5 +343,22 @@ public class GormController : MonoBehaviour
     public bool GetDashStatus()
     {
         return isDashing;
+    }
+
+    private void HandleMovementSound()
+    {
+        if (isWalking && isGrounded && !audioSource.isPlaying )
+        {
+            audioSource.Play();
+        }
+        else if ((!isWalking || !isGrounded) && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
+    }
+
+    public void SetMovementSoundVolume(float volume)
+    {
+        audioSource.volume = Mathf.Clamp(volume, 0f, 1f);
     }
 }

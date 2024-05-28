@@ -15,6 +15,7 @@ public class DashAttackState : AttackState
         base.Enter();
         attackDetails.damageAmount = stateData.attackDamage;
         attackDetails.position = entity.aliveGO.transform.position;
+        AudioSource.PlayClipAtPoint(stateData.attackSound, entity.transform.position);
     }
 
     public override void Exit()

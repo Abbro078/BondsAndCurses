@@ -7,4 +7,5 @@ public class D_MeleeAttack : ScriptableObject
 {
     public float attackRadius = 0.5f, attackDamage = 10.0f;
     public LayerMask whatIsPlayer;
+    public AudioClip attackSound;
 }

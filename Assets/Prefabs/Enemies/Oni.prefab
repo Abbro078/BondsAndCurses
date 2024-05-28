@@ -822,12 +822,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: e45c635e56a864b4eb3e9bb89f995487, type: 2}
+  isDamaged: 0
   wallCheck: {fileID: 8519167948327153083}
   ledgeCheck: {fileID: 8799267569302079062}
   playerCheck: {fileID: 4615374184228450796}
   groundCheck: {fileID: 4142297670726048335}
   healthBar: {fileID: 5878549445662716983}
   manaBar: {fileID: 0}
+  damagedSound: {fileID: 8300000, guid: 9aad074af0080c34e9c3ba0063fe5cf6, type: 3}
   idleStateData: {fileID: 11400000, guid: 3f0f655144ec98349afbe9b184725b6b, type: 2}
   moveStateData: {fileID: 11400000, guid: 5529501afec7a484b8036345006bd7af, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 941827aae5ba736458757bece7a86b03, type: 2}

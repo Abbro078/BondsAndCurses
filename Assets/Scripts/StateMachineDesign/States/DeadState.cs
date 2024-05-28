@@ -16,7 +16,8 @@ public class DeadState : State
 
         GameObject.Instantiate(stateData.deathBloodParticle, entity.aliveGO.transform.position, stateData.deathBloodParticle.transform.rotation);
         GameObject.Instantiate(stateData.deathChunkParticle, entity.aliveGO.transform.position, stateData.deathChunkParticle.transform.rotation);
-        
+        AudioSource.PlayClipAtPoint(stateData.deadSound, entity.transform.position);
+
         entity.gameObject.SetActive(false);
     }
 

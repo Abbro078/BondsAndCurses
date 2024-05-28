@@ -51,8 +51,9 @@ public class GormCombatController : MonoBehaviour
 
     [SerializeField]
     private LayerMask WhatIsDamageable;
-    private static string logFilePath = "game_log.txt";
 
+    [SerializeField]
+    private AudioClip swingSound;
     
 
     private void Start()
@@ -101,6 +102,7 @@ public class GormCombatController : MonoBehaviour
                 isAttacking = true;
                 anim.SetBool("attack2", true);
                 anim.SetBool("isAttacking", isAttacking);
+                AudioSource.PlayClipAtPoint(swingSound, transform.position, 0.5f);
             }
         }
     }
@@ -118,6 +120,7 @@ public class GormCombatController : MonoBehaviour
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack); 
                 anim.SetBool("isAttacking", isAttacking);
+                AudioSource.PlayClipAtPoint(swingSound, transform.position, 0.5f);
             }
         }
         if(Time.time >= lastInputTime + inputTimer)
@@ -136,10 +139,13 @@ public class GormCombatController : MonoBehaviour
 
         foreach(Collider2D collider in detectedObjects)
         {
-            if (collider.transform.parent.CompareTag("Enemy"))
+            if(collider.transform.parent != null)
             {
-                collider.transform.parent.SendMessage("Damage", attackDetails);
-            }        
+                if (collider.transform.parent.CompareTag("Enemy"))
+                {
+                    collider.transform.parent.SendMessage("Damage", attackDetails);
+                }        
+            }
         }
 
     }

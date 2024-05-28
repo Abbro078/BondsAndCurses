@@ -29,6 +29,9 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private ManaBar manaBar;
 
+    [SerializeField]
+    private AudioClip damagedSound;
+
 
     public virtual void Start()
     {
@@ -129,6 +132,7 @@ public class Entity : MonoBehaviour
         DamageHop(entityData.damageHopSpeed);
 
         Instantiate(entityData.hitParticle, aliveGO.transform.position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
+        AudioSource.PlayClipAtPoint(damagedSound, transform.position);
 
         if(attackDetails.position.x > aliveGO.transform.position.x)
         {

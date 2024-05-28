@@ -425,12 +425,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityData: {fileID: 11400000, guid: f5739a7ec4835c441a2af432e417e60e, type: 2}
+  isDamaged: 0
   wallCheck: {fileID: 3518201450591693135}
   ledgeCheck: {fileID: 8448416975751447506}
   playerCheck: {fileID: 316825124655560281}
   groundCheck: {fileID: 7108809218000891569}
   healthBar: {fileID: 87146487001326998}
   manaBar: {fileID: 0}
+  damagedSound: {fileID: 8300000, guid: 669a7950b07166b489b7f3cf4d5b24e5, type: 3}
   idleStateData: {fileID: 11400000, guid: a8d8782267db5ae4294608d1296cb3c7, type: 2}
   moveStateData: {fileID: 11400000, guid: ffccb32592f84084da77604cd74bdf92, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 1cc319e843cc7fe48a80036d0bc2ec12, type: 2}

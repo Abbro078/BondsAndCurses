@@ -38,6 +38,9 @@ public class TakashiCombatController : MonoBehaviour
     [SerializeField]
     private LayerMask WhatIsDamageable;   
 
+    [SerializeField]
+    private AudioClip swingSound;
+
     
 
 
@@ -82,6 +85,7 @@ public class TakashiCombatController : MonoBehaviour
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack); 
                 anim.SetBool("isAttacking", isAttacking);
+                AudioSource.PlayClipAtPoint(swingSound, transform.position, 0.5f);
             }
         }
         if(Time.time >= lastInputTime + inputTimer)
@@ -99,10 +103,13 @@ public class TakashiCombatController : MonoBehaviour
 
         foreach(Collider2D collider in detectedObjects)
         {
-            if (collider.transform.parent.CompareTag("Enemy"))
+            if(collider.transform.parent != null)
             {
-                collider.transform.parent.SendMessage("Damage", attackDetails);
-            }        
+                if (collider.transform.parent.CompareTag("Enemy"))
+                {
+                    collider.transform.parent.SendMessage("Damage", attackDetails);
+                }            
+            }
         }
 
     }
